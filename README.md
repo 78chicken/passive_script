@@ -1,4 +1,4 @@
-在github放置設定檔,統一管理就不用每台手動改;以下視需要個別安裝 
+在github放置設定檔,統一管理就不用每台手動改;以下視需要個別安裝  
 1.安裝cockpit  
 curl -s -o ./fetch_and_run.sh https://raw.githubusercontent.com/78chicken/passive_script/main/install_cockpit.sh    
 chmod 775 install_cockpit.sh    
