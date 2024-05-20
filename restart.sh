@@ -58,11 +58,6 @@ sudo podman container stop ProxyRack
 sleep 30s
 sudo podman container start ProxyRack
 
-#13. Proxylite
-sudo podman container stop ProxyLite
-sleep 30s
-sudo podman container start ProxyLite
-
 #restart
 #sleep 10s
 #sudo reboot
