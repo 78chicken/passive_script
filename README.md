@@ -1,6 +1,7 @@
 在github放置設定檔,統一管理就不用每台手動改;以下視需要個別安裝  
-Linux
-===
+
+Linux版本
+---
 1. 安裝cockpit  
 curl -s -o ./fetch_and_run.sh https://raw.githubusercontent.com/78chicken/passive_script/main/install_cockpit.sh    
 chmod 775 install_cockpit.sh    
@@ -13,6 +14,7 @@ chmod 775 fetch_and_run.sh
 
 
 iStore版本  
+---
 1. 取得腳本,並設定權限  
 curl -s -o ./fetch_and_run.sh https://raw.githubusercontent.com/78chicken/passive_script/main/run_istore.sh  
 chmod 775 fetch_and_run.sh  
