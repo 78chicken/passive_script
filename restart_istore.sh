@@ -53,12 +53,7 @@ docker container stop Grass
 sleep 30s
 docker container start Grass
 
-#12. ProxyLite
-docker container stop ProxyLite
-sleep 30s
-docker container start ProxyLite
-
-#13. ProxyRack
+#12. ProxyRack
 docker container stop ProxyRack
 sleep 30s
 docker container start ProxyRack
