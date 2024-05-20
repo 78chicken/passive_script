@@ -13,8 +13,8 @@ chmod 775 fetch_and_run.sh
 
 
 iStore版本  
-1.取得腳本,並設定權限  
+1. 取得腳本,並設定權限  
 curl -s -o ./fetch_and_run.sh https://raw.githubusercontent.com/78chicken/passive_script/main/run_istore.sh  
 chmod 775 fetch_and_run.sh  
-2.設定排程 : sudo crontab -e  
+2. 設定排程 : sudo crontab -e  
   5 3 * * * /opt/daily_job/fetch_and_run.sh    
