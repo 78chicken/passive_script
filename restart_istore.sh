@@ -1,7 +1,7 @@
 #1. GagaNode
-#docker container stop GagaNode
-#sleep 30s
-#docker container start GagaNode
+docker container stop GagaNode
+sleep 60s
+docker container start GagaNode
 
 #2. Traffmonetizer
 docker container stop Traffmonetizer
