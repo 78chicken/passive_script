@@ -13,6 +13,11 @@ sudo podman container stop Repocket
 sleep 30s
 sudo podman container start Repocket
 
+#3. Repocket2
+sudo podman container stop Repocket2
+sleep 30s
+sudo podman container start Repocket2
+
 #4. Honeygain
 sudo podman container stop HoneyGain
 sleep 120s
