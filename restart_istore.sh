@@ -13,6 +13,10 @@ docker container stop Repocket
 sleep 30s
 docker container start Repocket
 
+docker container stop Repocket2
+sleep 30s
+docker container start Repocket2
+
 #4. Honeygain
 docker container stop HoneyGain
 sleep 120s
