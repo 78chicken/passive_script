@@ -3,7 +3,7 @@
 Linux版本
 ---
 1. 安裝cockpit  
-curl -s -o ./fetch_and_run.sh https://raw.githubusercontent.com/78chicken/passive_script/main/install_cockpit.sh    
+curl -s -o ./install_cockpit.sh https://raw.githubusercontent.com/78chicken/passive_script/main/install_cockpit.sh    
 chmod 775 install_cockpit.sh    
 ./install_cockpit.sh  
 2. 取得腳本,並設定權限  
