@@ -8,6 +8,10 @@ docker container stop Traffmonetizer
 sleep 30s
 docker container start Traffmonetizer
 
+docker container stop Traffmonetizer2
+sleep 30s
+docker container start Traffmonetizer2
+
 #3. Repocket
 docker container stop Repocket
 sleep 30s
