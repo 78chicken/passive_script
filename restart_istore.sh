@@ -65,3 +65,8 @@ docker container start Grass
 docker container stop ProxyRack
 sleep 30s
 docker container start ProxyRack
+
+#13. NodePay
+docker container stop NodePay
+sleep 30s
+docker container start NodePay
