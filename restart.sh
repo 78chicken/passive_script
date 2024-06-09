@@ -67,6 +67,11 @@ sudo podman container stop ProxyRack
 sleep 30s
 sudo podman container start ProxyRack
 
+#13. NodePay
+sudo podman container stop NodePay
+sleep 30s
+sudo podman container start NodePay
+
 #restart
 #sleep 10s
 #sudo reboot
