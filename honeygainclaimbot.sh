@@ -34,5 +34,5 @@ sudo podman stop bot
 sleep 20s
 
 sudo podman run -d --rm --name bot -m 256m -e EMAIL=yamadali0209@gmail.com -e PASSWORD=q511612q xterna/honeygain-pot
-sleep 30s
+sleep 45s
 sudo podman stop bot
