@@ -8,9 +8,9 @@ sudo podman container stop Traffmonetizer
 sleep 30s
 sudo podman container start Traffmonetizer
 
-sudo podman container stop Traffmonetizer2
-sleep 30s
-sudo podman container start Traffmonetizer2
+#sudo podman container stop Traffmonetizer2
+#sleep 30s
+#sudo podman container start Traffmonetizer2
 
 #3. Repocket
 sudo podman container stop Repocket
