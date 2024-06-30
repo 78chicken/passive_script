@@ -54,8 +54,8 @@ sudo podman container start IPRoyal
 
 #10. SpeedShare
 sudo podman container stop SpeedShare
-sleep 30s
-sudo podman container start SpeedShare
+#sleep 30s
+#sudo podman container start SpeedShare
 
 #11. Grass
 sudo podman container stop Grass
