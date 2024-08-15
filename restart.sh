@@ -13,14 +13,14 @@ sleep 30s
 sudo podman container start Traffmonetizer2
 
 #3. Repocket
-#sudo podman container stop Repocket
-#sleep 30s
-#sudo podman container start Repocket
+sudo podman container stop Repocket
+sleep 30s
+sudo podman container start Repocket
 
 #3. Repocket2
-#sudo podman container stop Repocket2
-#sleep 30s
-#sudo podman container start Repocket2
+sudo podman container stop Repocket2
+sleep 30s
+sudo podman container start Repocket2
 
 #4. Honeygain
 sudo podman container stop HoneyGain
@@ -68,9 +68,9 @@ sleep 30s
 sudo podman container start ProxyRack
 
 #13. NodePay
-#sudo podman container stop NodePay
-#sleep 60s
-#sudo podman container start NodePay
+sudo podman container stop NodePay
+sleep 60s
+sudo podman container start NodePay
 
 #restart
 #sleep 10s
