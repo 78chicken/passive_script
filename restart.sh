@@ -72,6 +72,11 @@ sudo podman container stop NodePay
 sleep 60s
 sudo podman container start NodePay
 
+#14. BearShare
+sudo podman container stop BearShare
+sleep 30s
+sudo podman container start BearShare
+
 #restart
 #sleep 10s
 #sudo reboot
