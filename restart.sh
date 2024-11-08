@@ -77,6 +77,16 @@ sudo podman container stop BearShare
 sleep 30s
 sudo podman container start BearShare
 
+#15. Network3
+sudo podman container stop Network3
+sleep 30s
+sudo podman container start Network3
+
+#16. BlockMesh
+sudo podman container stop BlockMesh
+sleep 30s
+sudo podman container start BlockMesh
+
 #restart
 #sleep 10s
 #sudo reboot
