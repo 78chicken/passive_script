@@ -1,4 +1,4 @@
-#1. GagaNode
+Share#1. GagaNode
 sudo podman container stop GagaNode
 sleep 30s
 sudo podman container start GagaNode
@@ -52,10 +52,10 @@ sudo podman container stop IPRoyal
 sleep 90s
 sudo podman container start IPRoyal
 
-#10. SpeedShare
-#sudo podman container stop SpeedShare
+#10. Packetshare
+#sudo podman container stop Packetshare
 #sleep 30s
-#sudo podman container start SpeedShare
+#sudo podman container start Packetshare
 
 #11. Grass
 sudo podman container stop Grass
