@@ -53,9 +53,9 @@ sleep 90s
 sudo podman container start IPRoyal
 
 #10. Packetshare
-#sudo podman container stop Packetshare
-#sleep 30s
-#sudo podman container start Packetshare
+sudo podman container stop Packetshare
+sleep 30s
+sudo podman container start Packetshare
 
 #11. Grass
 sudo podman container stop Grass
