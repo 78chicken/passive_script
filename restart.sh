@@ -50,7 +50,7 @@ sudo podman container start EarnFm
 #9. IPRoyal
 sudo podman container stop IPRoyal
 sleep 90s
-sudo podman container start IPRoyal
+#sudo podman container start IPRoyal
 
 #10. Packetshare
 sudo podman container stop Packetshare
