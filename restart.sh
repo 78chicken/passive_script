@@ -87,6 +87,11 @@ sudo podman container stop BlockMesh
 sleep 30s
 sudo podman container start BlockMesh
 
+#17. BlockMesh
+sudo podman container stop PipeNetwork
+sleep 30s
+sudo podman container start PipeNetwork
+
 #restart
 #sleep 10s
 #sudo reboot
