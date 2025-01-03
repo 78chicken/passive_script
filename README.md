@@ -19,4 +19,11 @@ iStore版本
 curl -s -o ./fetch_and_run.sh https://raw.githubusercontent.com/78chicken/passive_script/main/run_istore.sh  
 chmod 775 fetch_and_run.sh  
 2. 設定排程 : sudo crontab -e  
-  5 3 * * * /opt/daily_job/fetch_and_run.sh    
+  5 3 * * * /opt/daily_job/fetch_and_run.sh
+
+安裝PortainerCE
+install_potainer_ce.sh   
+安裝PortainerAgent
+install_potainer_agent.sh   
+安裝WatchTower
+install_watchtower.sh
