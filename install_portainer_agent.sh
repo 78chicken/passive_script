@@ -1,0 +1,1 @@
+sudo podman run --privileged -d -m 256M -p 9001:9001 --name PortainerAgent --restart=always -v /run/podman/podman.sock:/var/run/docker.sock -v /var/lib/containers/storage:/var/lib/docker/volumes portainer/agent
