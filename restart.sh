@@ -92,6 +92,11 @@ sudo podman container stop PipeNetwork
 sleep 30s
 sudo podman container start PipeNetwork
 
+sudo podman container stop Titan
+sleep 30s
+sudo podman container start Titan
+
+
 #100 刪除沒有tag的image
 #sudo podman images -f "dangling=true" -q | xargs sudo podman rmi
 
