@@ -79,8 +79,8 @@ sleep 30s
 
 #15. Network3
 sudo podman container stop Network3
-sleep 30s
-sudo podman container start Network3
+#sleep 30s
+#sudo podman container start Network3
 
 #16. BlockMesh
 sudo podman container stop BlockMesh
