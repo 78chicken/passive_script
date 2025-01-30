@@ -102,8 +102,13 @@ sudo podman container stop OpenLoop
 sleep 30s
 sudo podman container start OpenLoop
 
+#19 Teneo
+sudo podman container stop Teneo
+sleep 30s
+sudo podman container start Teneo
+
 #100 刪除沒有tag的image
-#sudo podman images -f "dangling=true" -q | xargs sudo podman rmi
+sudo podman images -f "dangling=true" -q | xargs sudo podman rmi
 
 #restart
 #sleep 10s
