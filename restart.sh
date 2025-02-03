@@ -78,7 +78,7 @@ sleep 30s
 #sudo podman container start BearShare
 
 #15. Network3
-sudo podman container stop Network3
+#sudo podman container stop Network3
 #sleep 30s
 #sudo podman container start Network3
 
@@ -87,10 +87,10 @@ sudo podman container stop BlockMesh
 sleep 30s
 sudo podman container start BlockMesh
 
-#17. BlockMesh
+#17. PipeNetwork
 sudo podman container stop PipeNetwork
-sleep 30s
-sudo podman container start PipeNetwork
+#sleep 30s
+#sudo podman container start PipeNetwork
 
 #18 Titan
 sudo podman container stop Titan
@@ -106,6 +106,11 @@ sudo podman container start OpenLoop
 sudo podman container stop Teneo
 sleep 30s
 sudo podman container start Teneo
+
+#20 Gaea
+sudo podman container stop Gaea
+sleep 30s
+sudo podman container start Gaea
 
 #100 刪除沒有tag的image
 sudo podman images -f "dangling=true" -q | xargs sudo podman rmi
