@@ -1,7 +1,7 @@
 Share#1. GagaNode
 sudo podman container stop GagaNode
-sleep 30s
-sudo podman container start GagaNode
+#sleep 30s
+#sudo podman container start GagaNode
 
 #2. Traffmonetizer
 sudo podman container stop Traffmonetizer
