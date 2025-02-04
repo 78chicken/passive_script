@@ -1,4 +1,4 @@
-Share#1. GagaNode
+#1. GagaNode
 sudo podman container stop GagaNode
 #sleep 30s
 #sudo podman container start GagaNode
