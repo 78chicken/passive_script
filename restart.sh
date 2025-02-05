@@ -68,9 +68,9 @@ sleep 30s
 sudo podman container start ProxyRack
 
 #13. NodePay
-sudo podman container stop NodePay
-sleep 60s
-sudo podman container start NodePay
+#sudo podman container stop NodePay
+#sleep 60s
+#sudo podman container start NodePay
 
 #14. BearShare
 sudo podman container stop BearShare
