@@ -34,8 +34,8 @@ sudo podman container start PacketStream
 
 #6. Bitping
 sudo podman container stop Bitping
-sleep 30s
-sudo podman container start Bitping
+#sleep 30s
+#sudo podman container start Bitping
 
 #7. EarnApp
 sudo podman container stop EarnApp
