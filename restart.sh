@@ -1,5 +1,5 @@
 #1. GagaNode
-sudo podman container stop GagaNode
+#sudo podman container stop GagaNode
 #sleep 30s
 #sudo podman container start GagaNode
 
@@ -33,14 +33,14 @@ sleep 180s
 sudo podman container start PacketStream
 
 #6. Bitping
-sudo podman container stop Bitping
+#sudo podman container stop Bitping
 #sleep 30s
 #sudo podman container start Bitping
 
 #7. EarnApp
 sudo podman container stop EarnApp
-#sleep 30s
-#sudo podman container start EarnApp
+sleep 30s
+sudo podman container start EarnApp
 
 #8. EarnFm
 sudo podman container stop EarnFm
