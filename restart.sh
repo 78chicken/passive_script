@@ -1,13 +1,9 @@
-#1. GagaNode
-#sudo podman container stop GagaNode
-#sleep 30s
-#sudo podman container start GagaNode
-
-#2. Traffmonetizer
+#1. Traffmonetizer
 sudo podman container stop Traffmonetizer
 sleep 30s
 sudo podman container start Traffmonetizer
 
+#2. Traffmonetizer2
 sudo podman container stop Traffmonetizer2
 sleep 30s
 sudo podman container start Traffmonetizer2
@@ -17,25 +13,20 @@ sudo podman container stop Repocket
 sleep 30s
 sudo podman container start Repocket
 
-#3. Repocket2
+#4. Repocket2
 sudo podman container stop Repocket2
 sleep 30s
 sudo podman container start Repocket2
 
-#4. Honeygain
+#5. Honeygain
 sudo podman container stop HoneyGain
 sleep 120s
 sudo podman container start HoneyGain
 
-#5. PacketStream
+#6. PacketStream
 sudo podman container stop PacketStream
 sleep 180s
 sudo podman container start PacketStream
-
-#6. Bitping
-#sudo podman container stop Bitping
-#sleep 30s
-#sudo podman container start Bitping
 
 #7. EarnApp
 sudo podman container stop EarnApp
@@ -52,68 +43,72 @@ sudo podman container stop IPRoyal
 sleep 90s
 sudo podman container start IPRoyal
 
-#10. Packetshare
-sudo podman container stop Packetshare
-sleep 30s
-sudo podman container start Packetshare
-
-#11. Grass
+#10. Grass
 sudo podman container stop Grass
 sleep 30s
 sudo podman container start Grass
 
-#12. ProxyRack
+#11. ProxyRack
 sudo podman container stop ProxyRack
 sleep 30s
 sudo podman container start ProxyRack
 
-#13. NodePay
-#sudo podman container stop NodePay
-#sleep 60s
-#sudo podman container start NodePay
-
-#14. BearShare
-sudo podman container stop BearShare
+#12. NodePay
+sudo podman container stop NodePay
 sleep 30s
-#sudo podman container start BearShare
+sudo podman container start NodePay
 
-#15. Network3
-#sudo podman container stop Network3
-#sleep 30s
-#sudo podman container start Network3
-
-#16. BlockMesh
+#13. BlockMesh
 sudo podman container stop BlockMesh
 sleep 30s
 sudo podman container start BlockMesh
 
-#17. PipeNetwork
-sudo podman container stop PipeNetwork
-#sleep 30s
-#sudo podman container start PipeNetwork
-
-#18 Titan
+#14 Titan
 sudo podman container stop Titan
 sleep 30s
 sudo podman container start Titan
 
-#19 OpenLoop
+#15 OpenLoop
 sudo podman container stop OpenLoop
 sleep 30s
 sudo podman container start OpenLoop
 
-#19 Teneo
+#16 Teneo
 sudo podman container stop Teneo
 sleep 30s
 sudo podman container start Teneo
 
-#20 Gaea
+#17 Gaea
 sudo podman container stop Gaea
 sleep 30s
 sudo podman container start Gaea
 
+#18 DistributeAi
+sudo podman container stop DistributeAi
+sleep 30s
+sudo podman container start DistributeAi
+
+#19 DePINed
+sudo podman container stop DePINed
+sleep 30s
+sudo podman container start DePINed
+
+#20 Bless
+sudo podman container stop Bless
+sleep 30s
+sudo podman container start Bless
+
+#14. PipeNetwork
+#sudo podman container stop PipeNetwork
+#sleep 30s
+#sudo podman container start PipeNetwork
+
+
 #100 刪除沒有tag的image
 sudo podman images -f "dangling=true" -q | xargs sudo podman rmi
+
+#101 刪除沒有使用的image
+sudo podman image prune -a -f
 
 #restart
 #sleep 10s
