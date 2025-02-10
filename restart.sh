@@ -98,10 +98,10 @@ sudo podman container stop Bless
 sleep 30s
 sudo podman container start Bless
 
-#14. PipeNetwork
-#sudo podman container stop PipeNetwork
-#sleep 30s
-#sudo podman container start PipeNetwork
+#21 MinionLab
+sudo podman container stop MinionLab
+sleep 30s
+sudo podman container start MinionLab
 
 
 #100 刪除沒有tag的image
