@@ -70,39 +70,43 @@ sudo podman container start Titan
 
 #15 OpenLoop
 sudo podman container stop OpenLoop
-sleep 30s
+sleep 15s
 sudo podman container start OpenLoop
 
 #16 Teneo
 sudo podman container stop Teneo
-sleep 30s
+sleep 15s
 sudo podman container start Teneo
 
 #17 Gaea
 sudo podman container stop Gaea
-sleep 30s
+sleep 15s
 sudo podman container start Gaea
 
 #18 DistributeAi
 sudo podman container stop DistributeAi
-sleep 30s
+sleep 15s
 sudo podman container start DistributeAi
 
 #19 DePINed
 sudo podman container stop DePINed
-sleep 30s
+sleep 15s
 sudo podman container start DePINed
 
 #20 Bless
 sudo podman container stop Bless
-sleep 30s
+sleep 15s
 sudo podman container start Bless
 
 #21 MinionLab
 sudo podman container stop MinionLab
-sleep 30s
+sleep 15s
 sudo podman container start MinionLab
 
+#21 Unich
+sudo podman container stop Unich
+sleep 15s
+sudo podman container start Unich
 
 #100 刪除沒有tag的image
 sudo podman images -f "dangling=true" -q | xargs sudo podman rmi
