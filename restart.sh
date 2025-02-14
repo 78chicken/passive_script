@@ -101,7 +101,7 @@ sudo podman container start Bless
 #21 MinionLab
 sudo podman container stop MinionLab
 sleep 15s
-#sudo podman container start MinionLab
+sudo podman container start MinionLab
 
 #21 Unich
 sudo podman container stop Unich
