@@ -108,6 +108,17 @@ sudo podman container stop Unich
 sleep 15s
 sudo podman container start Unich
 
+#21 Sparkchain
+sudo podman container stop Sparkchain
+sleep 15s
+sudo podman container start Sparkchain
+
+#21 Dawn
+sudo podman container stop Dawn
+sleep 15s
+sudo podman container start Dawn
+
+
 #100 刪除沒有tag的image
 sudo podman images -f "dangling=true" -q | xargs sudo podman rmi
 
