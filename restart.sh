@@ -15,8 +15,8 @@ sudo podman container start Repocket
 
 #4. Repocket2
 sudo podman container stop Repocket2
-sleep 30s
-sudo podman container start Repocket2
+#sleep 30s
+#sudo podman container start Repocket2
 
 #5. Honeygain
 sudo podman container stop HoneyGain
