@@ -102,16 +102,16 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
-process_container "OpenLoop" "$UPDATE_OpenLoop" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "Teneo" "$UPDATE_Teneo" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "STOP"
-process_container "Gaea" "$UPDATE_Gaea" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "Bless" "$UPDATE_Bless" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "DePINed" "$UPDATE_DePINed" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "MinionLab" "$UPDATE_MinionLab" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "NodePay" "$UPDATE_NodePay" "$(echo $container | tr '[:upper:]' '[:lower:]')" "tokens.txt" "$SLEEP_TIME" "$ACTION"
-process_container "DistributeAi" "$UPDATE_DistributeAi" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "Nodego" "$UPDATE_Nodego" "$(echo $container | tr '[:upper:]' '[:lower:]')" "tokens.txt" "$SLEEP_TIME" "$ACTION"
-process_container "Sparkchain" "$UPDATE_Sparkchain" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
+process_container "OpenLoop" "$UPDATE_OpenLoop" "openloop" "accounts.json" "$SLEEP_TIME" "$ACTION"
+process_container "Teneo" "$UPDATE_Teneo" "teneo" "accounts.json" "$SLEEP_TIME" "STOP"
+process_container "Gaea" "$UPDATE_Gaea" "gaea" "accounts.json" "$SLEEP_TIME" "$ACTION"
+process_container "Bless" "$UPDATE_Bless" "bless" "accounts.json" "$SLEEP_TIME" "$ACTION"
+process_container "DePINed" "$UPDATE_DePINed" "depined" "accounts.json" "$SLEEP_TIME" "$ACTION"
+process_container "MinionLab" "$UPDATE_MinionLab" "minionlab" "accounts.json" "$SLEEP_TIME" "$ACTION"
+process_container "NodePay" "$UPDATE_NodePay" "nodepay" "tokens.txt" "$SLEEP_TIME" "$ACTION"
+process_container "DistributeAi" "$UPDATE_DistributeAi" "distributeai" "$SLEEP_TIME" "$ACTION"
+process_container "Nodego" "$UPDATE_Nodego" "nodego" "tokens.txt" "$SLEEP_TIME" "$ACTION"
+process_container "Sparkchain" "$UPDATE_Sparkchain" "sparkchain" "accounts.json" "$SLEEP_TIME" "$ACTION"
 
 process_container "Titan" "$UPDATE_Titan" "" "" "$SLEEP_TIME" "$ACTION"
 process_container "HoneyGain" "$UPDATE_HoneyGain" "" "" "$SLEEP_TIME" "$ACTION"
