@@ -75,8 +75,8 @@ sudo podman container start OpenLoop
 
 #16 Teneo
 sudo podman container stop Teneo
-sleep 15s
-sudo podman container start Teneo
+#sleep 15s
+#sudo podman container start Teneo
 
 #17 Gaea
 sudo podman container stop Gaea
