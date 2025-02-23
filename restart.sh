@@ -39,7 +39,7 @@ GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 # 設定每個容器是否需要從 GitHub 下載更新 (Y=下載，N=本地方式)
 
 UPDATE_OpenLoop="Y"
-UPDATE_Teneo="N"
+UPDATE_Teneo="Y"
 UPDATE_Gaea="Y"
 UPDATE_Bless="Y"
 UPDATE_DePINed="Y"
@@ -103,7 +103,7 @@ process_container() {
 
 # 依據設定執行不同的更新方式
 process_container "OpenLoop" "$UPDATE_OpenLoop" "openloop" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "Teneo" "$UPDATE_Teneo" "teneo" "accounts.json" "$SLEEP_TIME" "STOP"
+process_container "Teneo" "$UPDATE_Teneo" "teneo" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Gaea" "$UPDATE_Gaea" "gaea" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Bless" "$UPDATE_Bless" "bless" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "DePINed" "$UPDATE_DePINed" "depined" "accounts.json" "$SLEEP_TIME" "$ACTION"
