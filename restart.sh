@@ -48,6 +48,7 @@ UPDATE_NodePay="Y"
 UPDATE_DistributeAi="Y"
 UPDATE_Nodego="Y"
 UPDATE_Sparkchain="Y"
+UPDATE_Naoris="Y"
 
 UPDATE_HoneyGain="N"
 UPDATE_Traffmonetizer="N"
@@ -101,6 +102,7 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
+process_container "Naoris" "$UPDATE_Naoris" "naoris" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "OpenLoop" "$UPDATE_OpenLoop" "openloop" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Teneo" "$UPDATE_Teneo" "teneo" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Gaea" "$UPDATE_Gaea" "gaea" "accounts.json" "$SLEEP_TIME" "$ACTION"
