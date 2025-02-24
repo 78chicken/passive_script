@@ -61,7 +61,6 @@ UPDATE_Grass="N"
 UPDATE_ProxyRack="N"
 UPDATE_BlockMesh="N"
 UPDATE_Titan="N"
-UPDATE_Unich="N"
 UPDATE_Dawn="N"
 
 
@@ -126,7 +125,6 @@ process_container "Grass" "$UPDATE_Grass" "" "" "$SLEEP_TIME" "$ACTION"
 process_container "ProxyRack" "$UPDATE_ProxyRack" "" "" "$SLEEP_TIME" "$ACTION"
 process_container "BlockMesh" "$UPDATE_BlockMesh" "" "" "$SLEEP_TIME" "$ACTION"
 process_container "Dawn" "$UPDATE_Dawn" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "Unich" "$UPDATE_Unich" "" "" "$SLEEP_TIME" "$ACTION"
 
 # 清理沒有 tag 的 images
 echo "清理未標記的 images..."
