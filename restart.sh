@@ -49,6 +49,7 @@ UPDATE_DistributeAi="Y"
 UPDATE_Nodego="Y"
 UPDATE_Sparkchain="Y"
 UPDATE_Naoris="Y"
+UPDATE_Dawn="Y"
 
 UPDATE_HoneyGain="N"
 UPDATE_Traffmonetizer="N"
@@ -62,7 +63,7 @@ UPDATE_Grass="N"
 UPDATE_ProxyRack="N"
 UPDATE_BlockMesh="N"
 UPDATE_Titan="N"
-UPDATE_Dawn="N"
+
 
 
 # 下載並執行腳本
@@ -113,6 +114,7 @@ process_container "NodePay" "$UPDATE_NodePay" "nodepay" "tokens.txt" "$SLEEP_TIM
 process_container "DistributeAi" "$UPDATE_DistributeAi" "distributeai" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Nodego" "$UPDATE_Nodego" "nodego" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Sparkchain" "$UPDATE_Sparkchain" "sparkchain" "accounts.json" "$SLEEP_TIME" "$ACTION"
+process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.json" "$SLEEP_TIME" "$ACTION"
 
 process_container "Titan" "$UPDATE_Titan" "" "" "$SLEEP_TIME" "$ACTION"
 process_container "HoneyGain" "$UPDATE_HoneyGain" "" "" "$SLEEP_TIME" "$ACTION"
@@ -126,7 +128,7 @@ process_container "IPRoyal" "$UPDATE_IPRoyal" "" "" "$SLEEP_TIME" "$ACTION"
 process_container "Grass" "$UPDATE_Grass" "" "" "$SLEEP_TIME" "$ACTION"
 process_container "ProxyRack" "$UPDATE_ProxyRack" "" "" "$SLEEP_TIME" "$ACTION"
 process_container "BlockMesh" "$UPDATE_BlockMesh" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "Dawn" "$UPDATE_Dawn" "" "" "$SLEEP_TIME" "$ACTION"
+
 
 # 清理沒有 tag 的 images
 echo "清理未標記的 images..."
