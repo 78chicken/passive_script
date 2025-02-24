@@ -109,7 +109,7 @@ process_container "Teneo" "$UPDATE_Teneo" "teneo" "tokens.txt" "$SLEEP_TIME" "$A
 process_container "Gaea" "$UPDATE_Gaea" "gaea" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Bless" "$UPDATE_Bless" "bless" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "DePINed" "$UPDATE_DePINed" "depined" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "MinionLab" "$UPDATE_MinionLab" "minionlab" "accounts.json" "$SLEEP_TIME" "STOP"
+process_container "MinionLab" "$UPDATE_MinionLab" "minionlab" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "NodePay" "$UPDATE_NodePay" "nodepay" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "DistributeAi" "$UPDATE_DistributeAi" "distributeai" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Nodego" "$UPDATE_Nodego" "nodego" "tokens.txt" "$SLEEP_TIME" "$ACTION"
