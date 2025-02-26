@@ -49,7 +49,7 @@ UPDATE_DistributeAi="Y"
 UPDATE_Nodego="Y"
 UPDATE_Sparkchain="Y"
 UPDATE_Naoris="Y"
-UPDATE_Dawn="Y"
+UPDATE_Dawn="N"
 
 UPDATE_HoneyGain="N"
 UPDATE_Traffmonetizer="N"
@@ -114,7 +114,7 @@ process_container "NodePay" "$UPDATE_NodePay" "nodepay" "tokens.txt" "$SLEEP_TIM
 process_container "DistributeAi" "$UPDATE_DistributeAi" "distributeai" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Nodego" "$UPDATE_Nodego" "nodego" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Sparkchain" "$UPDATE_Sparkchain" "sparkchain" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.json" "$SLEEP_TIME" "$ACTION"
+process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.json" "$SLEEP_TIME" "STOP"
 
 process_container "Titan" "$UPDATE_Titan" "" "" "$SLEEP_TIME" "$ACTION"
 process_container "HoneyGain" "$UPDATE_HoneyGain" "" "" "$SLEEP_TIME" "$ACTION"
@@ -127,7 +127,7 @@ process_container "EarnFm" "$UPDATE_EarnFm" "" "" "$SLEEP_TIME" "$ACTION"
 process_container "IPRoyal" "$UPDATE_IPRoyal" "" "" "$SLEEP_TIME" "$ACTION"
 process_container "Grass" "$UPDATE_Grass" "" "" "$SLEEP_TIME" "STOP"
 process_container "ProxyRack" "$UPDATE_ProxyRack" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "BlockMesh" "$UPDATE_BlockMesh" "" "" "$SLEEP_TIME" "$ACTION"
+process_container "BlockMesh" "$UPDATE_BlockMesh" "" "" "$SLEEP_TIME" "STOP"
 
 
 # 清理沒有 tag 的 images
