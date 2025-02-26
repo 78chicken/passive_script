@@ -4,7 +4,7 @@ SLEEP_TIME=${1:-30s}  # 預設值為 30 秒
 ACTION=${2:-START}    # 預設為 START
 
 # 取得 ens192 的 IPv4 最後一組數字
-LAST_IP_OCTET=$(ip -4 a show ens192 | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | awk -F. '{print $4}')
+LAST_IP_OCTET=$(hostname -I | awk '{split($1, ip, "."); print ip[4]}')
 echo "本機 IP 最後一組數字: $LAST_IP_OCTET"
 
 # GitHub API 設定
@@ -14,7 +14,6 @@ KEY_FILE_URL="$GITHUB_API/machine/${LAST_IP_OCTET}/key.txt"
 # 下載 key.txt
 KEY_FILE_PATH="${BASE_DIR}/daily_job/key.txt"
 echo "從 GitHub下載 key.txt ...${KEY_FILE_URL}"
-echo "${GITHUB_TOKEN}"
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "$KEY_FILE_PATH" "$KEY_FILE_URL"
 
 # 確認 key.txt 是否成功下載
