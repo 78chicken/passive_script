@@ -45,7 +45,7 @@ UPDATE_Bless="Y"
 UPDATE_DePINed="Y"
 UPDATE_MinionLab="Y"
 UPDATE_NodePay="Y"
-UPDATE_DistributeAi="Y"
+UPDATE_DistributeAi="N"
 UPDATE_Nodego="Y"
 UPDATE_Sparkchain="Y"
 UPDATE_Naoris="Y"
@@ -63,7 +63,8 @@ UPDATE_Grass="N"
 UPDATE_ProxyRack="N"
 UPDATE_BlockMesh="N"
 UPDATE_Titan="N"
-
+#目前無法賺錢的
+#Grass / Dawn / BlockMesh / DistributeAi
 
 
 # 下載並執行腳本
@@ -111,7 +112,7 @@ process_container "Bless" "$UPDATE_Bless" "bless" "accounts.json" "$SLEEP_TIME" 
 process_container "DePINed" "$UPDATE_DePINed" "depined" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "MinionLab" "$UPDATE_MinionLab" "minionlab" "accounts.json" "$SLEEP_TIME" "STOP"
 process_container "NodePay" "$UPDATE_NodePay" "nodepay" "tokens.txt" "$SLEEP_TIME" "$ACTION"
-process_container "DistributeAi" "$UPDATE_DistributeAi" "distributeai" "accounts.json" "$SLEEP_TIME" "$ACTION"
+process_container "DistributeAi" "$UPDATE_DistributeAi" "distributeai" "accounts.json" "$SLEEP_TIME" "STOP"
 process_container "Nodego" "$UPDATE_Nodego" "nodego" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Sparkchain" "$UPDATE_Sparkchain" "sparkchain" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.json" "$SLEEP_TIME" "STOP"
