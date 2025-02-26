@@ -37,7 +37,7 @@ GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 
 # 設定每個容器是否需要從 GitHub 下載更新 (Y=下載，N=本地方式)
-UPDATE_HoneyGain="Y"
+UPDATE_HoneyGain="N"
 UPDATE_Traffmonetizer="N"
 UPDATE_Traffmonetizer2="N"
 UPDATE_EarnApp="N"
