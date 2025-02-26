@@ -40,13 +40,16 @@ done
 
 # 設定每個容器是否需要從 GitHub 下載更新 (Y=下載，N=本地方式)
 UPDATE_HoneyGain="N"
-UPDATE_Traffmonetizer="N"
+UPDATE_Traffmonetizer="Y"
+UPDATE_EarnApp="Y"
+UPDATE_IPRoyal="Y"
+
 UPDATE_Traffmonetizer2="N"
-UPDATE_EarnApp="N"
+
 UPDATE_Repocket="N"
 UPDATE_PacketStream="N"
 UPDATE_EarnFm="N"
-UPDATE_IPRoyal="N"
+
 UPDATE_Grass="N"
 UPDATE_ProxyRack="N"
 UPDATE_BlockMesh="N"
@@ -86,6 +89,7 @@ process_container() {
 process_container "HoneyGain" "$UPDATE_HoneyGain" "honeygain" "$SLEEP_TIME" "$ACTION"
 process_container "Traffmonetizer" "$UPDATE_Traffmonetizer" "traffmonetizer" "$SLEEP_TIME" "$ACTION"
 process_container "Earnapp" "$UPDATE_Earnapp" "earnapp" "$SLEEP_TIME" "$ACTION"
+process_container "IPRoyal" "$UPDATE_IPRoyal" "iproyal" "$SLEEP_TIME" "$ACTION"
 
 # 清理沒有 tag 的 images
 echo "清理未標記的 images..."
