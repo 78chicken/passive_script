@@ -57,8 +57,9 @@ UPDATE_Titan="N"
 process_container() {
     local container_name=$1
     local update_flag=$2
-    local project_name=$3    
-    local action_flag=$4
+    local project_name=$3
+    local sleep_time=$4
+    local action_flag=$5
 
     if [[ "$update_flag" == "Y" ]]; then      
         
@@ -80,7 +81,7 @@ process_container() {
 
 # 依據設定執行不同的更新方式
 
-process_container "HoneyGain" "$UPDATE_HoneyGain" "honeygain" "$ACTION"
+process_container "HoneyGain" "$UPDATE_HoneyGain" "honeygain" "$SLEEP_TIME" "$ACTION"
 
 
 # 清理沒有 tag 的 images
