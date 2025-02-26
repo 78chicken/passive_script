@@ -12,7 +12,7 @@ GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 KEY_FILE_URL="$GITHUB_API/machine/${LAST_IP_OCTET}/key.txt"
 # 下載 key.txt
-KEY_FILE_PATH="${BASE_DIR}/daily/key.txt"
+KEY_FILE_PATH="${BASE_DIR}/daily_job/key.txt"
 echo "從 GitHub下載 key.txt ...${KEY_FILE_URL}"
 echo "${GITHUB_TOKEN}"
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "$KEY_FILE_PATH" "$KEY_FILE_URL"
