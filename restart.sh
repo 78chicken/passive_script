@@ -1,24 +1,28 @@
 #!/bin/bash
-
 BASE_DIR="/opt"
 SLEEP_TIME=${1:-30s}  # 預設值為 30 秒
 ACTION=${2:-START}    # 預設為 START
 
-# 讀取 /opt/key.txt
-KEY_FILE="${BASE_DIR}/daily_job/key.txt"
-if [[ ! -f "$KEY_FILE" ]]; then
-    echo "錯誤: 找不到 $KEY_FILE"
+# 取得 ens192 的 IPv4 最後一組數字
+LAST_IP_OCTET=$(hostname -I | awk '{split($1, ip, "."); print ip[4]}')
+echo "本機 IP 最後一組數字: $LAST_IP_OCTET"
+
+# GitHub API 設定
+GITHUB_REPO="78chicken/config"
+GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
+KEY_FILE_URL="$GITHUB_API/machine/${LAST_IP_OCTET}/key.txt"
+# 下載 key.txt
+KEY_FILE_PATH="${BASE_DIR}/daily_job/key.txt"
+echo "從 GitHub下載 key.txt ...${KEY_FILE_URL}"
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "$KEY_FILE_PATH" "$KEY_FILE_URL"
+
+# 確認 key.txt 是否成功下載
+if [[ ! -f "$KEY_FILE_PATH" || ! -s "$KEY_FILE_PATH" ]]; then
+    echo "錯誤: 無法下載或 key.txt 為空"
     exit 1
 fi
 
-# 讀取 GitHub Token
-GITHUB_TOKEN=$(sed -n '1p' "$KEY_FILE" | tr -d '[:space:]')
-if [[ -z "$GITHUB_TOKEN" ]]; then
-    echo "錯誤: key.txt 內容格式錯誤，請確保第一行是 GitHub Token"
-    exit 1
-fi
-
-# 讀取 name/value 配對
+# 讀取 key/value 配對
 declare -A CONTAINER_ACCOUNTS
 while IFS=: read -r name value; do
     name=$(echo "$name" | tr -d '[:space:]')
@@ -26,15 +30,13 @@ while IFS=: read -r name value; do
     if [[ -n "$name" && -n "$value" ]]; then
         CONTAINER_ACCOUNTS["$name"]="$value"
     fi
-done < <(tail -n +2 "$KEY_FILE")
+done < "$KEY_FILE_PATH"
+
 # 印出 CONTAINER_ACCOUNTS 內容
 echo "讀取到的容器帳號對應關係:"
 for key in "${!CONTAINER_ACCOUNTS[@]}"; do
     echo "$key -> ${CONTAINER_ACCOUNTS[$key]}"
 done
-# GitHub API 設定
-GITHUB_REPO="78chicken/config"
-GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 
 # 設定每個容器是否需要從 GitHub 下載更新 (Y=下載，N=本地方式)
 
