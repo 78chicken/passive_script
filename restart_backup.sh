@@ -88,7 +88,7 @@ process_container() {
 
 process_container "HoneyGain" "$UPDATE_HoneyGain" "honeygain" "$SLEEP_TIME" "$ACTION"
 process_container "Traffmonetizer" "$UPDATE_Traffmonetizer" "traffmonetizer" "$SLEEP_TIME" "$ACTION"
-process_container "Earnapp" "$UPDATE_Earnapp" "earnapp" "$SLEEP_TIME" "$ACTION"
+process_container "EarnApp" "$UPDATE_EarnApp" "earnapp" "$SLEEP_TIME" "$ACTION"
 process_container "IPRoyal" "$UPDATE_IPRoyal" "iproyal" "$SLEEP_TIME" "$ACTION"
 
 # 清理沒有 tag 的 images
