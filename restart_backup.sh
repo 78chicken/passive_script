@@ -62,7 +62,7 @@ process_container() {
 
     if [[ "$update_flag" == "Y" ]]; then      
         
-        echo "[$container_name] 下載 設定 ...$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/${CONTAINER_ACCOUNTS[$project_name]}/run.sh"
+        echo "[$container_name] 下載 設定 ...$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/run.sh"
         sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${BASE_DIR}/$project_name/run.sh" "$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/run.sh"
         
         sudo bash ${BASE_DIR}/$project_name/run.sh 
