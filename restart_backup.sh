@@ -37,19 +37,7 @@ GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 
 # 設定每個容器是否需要從 GitHub 下載更新 (Y=下載，N=本地方式)
-
-UPDATE_OpenLoop="Y"
-UPDATE_Teneo="N"
-UPDATE_Gaea="Y"
-UPDATE_Bless="Y"
-UPDATE_DePINed="Y"
-UPDATE_MinionLab="Y"
-UPDATE_NodePay="Y"
-UPDATE_DistributeAi="Y"
-UPDATE_Nodego="Y"
-UPDATE_Sparkchain="Y"
-
-UPDATE_HoneyGain="N"
+UPDATE_HoneyGain="Y"
 UPDATE_Traffmonetizer="N"
 UPDATE_Traffmonetizer2="N"
 UPDATE_EarnApp="N"
@@ -61,8 +49,8 @@ UPDATE_Grass="N"
 UPDATE_ProxyRack="N"
 UPDATE_BlockMesh="N"
 UPDATE_Titan="N"
-UPDATE_Unich="N"
-UPDATE_Dawn="N"
+#目前無法賺錢的
+#Grass / Dawn / BlockMesh / DistributeAi
 
 
 # 下載並執行腳本
@@ -70,25 +58,16 @@ process_container() {
     local container_name=$1
     local update_flag=$2
     local project_name=$3
-    local accounts_file=$4
-    local sleep_time=$5
-    local action_flag=$6
+    local account=$4    
+    local action_flag=$5
 
-    if [[ "$update_flag" == "Y" ]]; then
-        if [[ "$action_flag" == "STOP" ]]; then
-            echo "[$container_name] 動作為 STOP，跳過下載與執行"
-            return
-        fi
-        echo "[$container_name] 下載 run.sh ..."
-        curl -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${BASE_DIR}/$project_name/run.sh" "$GITHUB_API/${project_name}/run.sh"
-        chmod +x "${BASE_DIR}/$project_name/run.sh"
-
+    if [[ "$update_flag" == "Y" ]]; then      
         if [[ -n "$accounts_file" ]]; then
-            echo "[$container_name] 下載 設定 ...$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/$accounts_file"
-            curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${BASE_DIR}/$project_name/$accounts_file" "$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/$accounts_file"
+            echo "[$container_name] 下載 設定 ...$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/$account/run.sh"
+            sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${BASE_DIR}/$project_name/run.sh" "$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/$account/run.sh"
         fi
 
-        bash ${BASE_DIR}/$project_name/run.sh 
+        sudo bash ${BASE_DIR}/$project_name/run.sh 
     else
         echo "[$container_name] 使用 Podman 重新啟動容器..."
         sudo podman container stop "$container_name"      
@@ -102,31 +81,9 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
-process_container "OpenLoop" "$UPDATE_OpenLoop" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "Teneo" "$UPDATE_Teneo" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "STOP"
-process_container "Gaea" "$UPDATE_Gaea" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "Bless" "$UPDATE_Bless" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "DePINed" "$UPDATE_DePINed" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "MinionLab" "$UPDATE_MinionLab" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "NodePay" "$UPDATE_NodePay" "$(echo $container | tr '[:upper:]' '[:lower:]')" "tokens.txt" "$SLEEP_TIME" "$ACTION"
-process_container "DistributeAi" "$UPDATE_DistributeAi" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "Nodego" "$UPDATE_Nodego" "$(echo $container | tr '[:upper:]' '[:lower:]')" "tokens.txt" "$SLEEP_TIME" "$ACTION"
-process_container "Sparkchain" "$UPDATE_Sparkchain" "$(echo $container | tr '[:upper:]' '[:lower:]')" "accounts.json" "$SLEEP_TIME" "$ACTION"
 
-process_container "Titan" "$UPDATE_Titan" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "HoneyGain" "$UPDATE_HoneyGain" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "Traffmonetizer" "$UPDATE_Traffmonetizer" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "Traffmonetizer2" "$UPDATE_Traffmonetizer2" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "EarnApp" "$UPDATE_EarnApp" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "Repocket" "$UPDATE_Repocket" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "PacketStream" "$UPDATE_PacketStream" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "EarnFm" "$UPDATE_EarnFm" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "IPRoyal" "$UPDATE_IPRoyal" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "Grass" "$UPDATE_Grass" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "ProxyRack" "$UPDATE_ProxyRack" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "BlockMesh" "$UPDATE_BlockMesh" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "Dawn" "$UPDATE_Dawn" "" "" "$SLEEP_TIME" "$ACTION"
-process_container "Unich" "$UPDATE_Unich" "" "" "$SLEEP_TIME" "$ACTION"
+process_container "HoneyGain" "$UPDATE_HoneyGain" "honeygain" "jyhfengli" "$ACTION"
+
 
 # 清理沒有 tag 的 images
 echo "清理未標記的 images..."
