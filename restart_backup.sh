@@ -57,16 +57,14 @@ UPDATE_Titan="N"
 process_container() {
     local container_name=$1
     local update_flag=$2
-    local project_name=$3
-    local account=$4    
-    local action_flag=$5
+    local project_name=$3    
+    local action_flag=$4
 
     if [[ "$update_flag" == "Y" ]]; then      
-        if [[ -n "$account" ]]; then
-            echo "[$container_name] 下載 設定 ...$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/$account/run.sh"
-            sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${BASE_DIR}/$project_name/run.sh" "$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/$account/run.sh"
-        fi
-
+        
+        echo "[$container_name] 下載 設定 ...$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/${CONTAINER_ACCOUNTS[$project_name]}/run.sh"
+        sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${BASE_DIR}/$project_name/run.sh" "$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/run.sh"
+        
         sudo bash ${BASE_DIR}/$project_name/run.sh 
     else
         echo "[$container_name] 使用 Podman 重新啟動容器..."
@@ -82,7 +80,7 @@ process_container() {
 
 # 依據設定執行不同的更新方式
 
-process_container "HoneyGain" "$UPDATE_HoneyGain" "honeygain" "jyhfengli" "$ACTION"
+process_container "HoneyGain" "$UPDATE_HoneyGain" "honeygain" "$ACTION"
 
 
 # 清理沒有 tag 的 images
