@@ -90,6 +90,8 @@ process_container "HoneyGain" "$UPDATE_HoneyGain" "honeygain" "$SLEEP_TIME" "$AC
 process_container "Traffmonetizer" "$UPDATE_Traffmonetizer" "traffmonetizer" "$SLEEP_TIME" "$ACTION"
 process_container "EarnApp" "$UPDATE_EarnApp" "earnapp" "$SLEEP_TIME" "$ACTION"
 process_container "IPRoyal" "$UPDATE_IPRoyal" "iproyal" "$SLEEP_TIME" "$ACTION"
+process_container "PacketStream" "$UPDATE_PacketStream" "packetstream" "$SLEEP_TIME" "$ACTION"
+process_container "EarnFm" "$UPDATE_EarnFm" "earnfm" "$SLEEP_TIME" "$ACTION"
 
 # 清理沒有 tag 的 images
 echo "清理未標記的 images..."
