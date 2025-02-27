@@ -84,6 +84,9 @@ process_container() {
             return
         fi
         echo "[$container_name] 下載 run.sh ..."
+         # 確保目標目錄存在
+        sudo mkdir -p "${BASE_DIR}/$project_name"
+        
         sudo curl -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${BASE_DIR}/$project_name/run.sh" "$GITHUB_API/${project_name}/run.sh"
         sudo chmod +x "${BASE_DIR}/$project_name/run.sh"
 
