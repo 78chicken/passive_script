@@ -69,6 +69,11 @@ process_container() {
     local sleep_time=$4
     local action_flag=$5
 
+    if [[ -z "${CONTAINER_ACCOUNTS[$project_name]}" ]]; then
+        echo "[$container_name] 錯誤: 找不到對應的帳號，跳過此容器"
+        return
+    fi
+
     if [[ "$update_flag" == "Y" ]]; then      
          # 確保目標目錄存在
         sudo mkdir -p "${BASE_DIR}/$project_name"
