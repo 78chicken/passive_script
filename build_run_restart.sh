@@ -78,6 +78,11 @@ process_container() {
     local sleep_time=$5
     local action_flag=$6
 
+    if [[ -z "${CONTAINER_ACCOUNTS[$project_name]}" ]]; then
+        echo "[$container_name] 錯誤: 找不到對應的帳號，跳過此容器"
+        return
+    fi
+
     if [[ "$update_flag" == "Y" ]]; then
         if [[ "$action_flag" == "STOP" ]]; then
             echo "[$container_name] 動作為 STOP，跳過下載與執行"
