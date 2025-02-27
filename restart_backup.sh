@@ -43,12 +43,14 @@ UPDATE_HoneyGain="N"
 UPDATE_Traffmonetizer="Y"
 UPDATE_EarnApp="Y"
 UPDATE_IPRoyal="Y"
+UPDATE_PacketStream="N"
+UPDATE_EarnFm="N"
+
 
 UPDATE_Traffmonetizer2="N"
 
 UPDATE_Repocket="N"
-UPDATE_PacketStream="N"
-UPDATE_EarnFm="N"
+
 
 UPDATE_Grass="N"
 UPDATE_ProxyRack="N"
