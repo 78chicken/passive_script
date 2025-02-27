@@ -42,7 +42,7 @@ done
 
 UPDATE_OpenLoop="Y"
 UPDATE_Teneo="Y"
-UPDATE_Gaea="N"
+UPDATE_Gaea="Y"
 UPDATE_Bless="Y"
 UPDATE_DePINed="Y"
 UPDATE_MinionLab="Y"
