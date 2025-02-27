@@ -43,17 +43,18 @@ UPDATE_HoneyGain="N"
 UPDATE_Traffmonetizer="Y"
 UPDATE_EarnApp="Y"
 UPDATE_IPRoyal="Y"
-UPDATE_PacketStream="N"
-UPDATE_EarnFm="N"
-
+UPDATE_PacketStream="Y"
+UPDATE_EarnFm="Y"
+UPDATE_ProxyRack="Y"
+UPDATE_Repocket="Y"
 
 UPDATE_Traffmonetizer2="N"
 
-UPDATE_Repocket="N"
+
 
 
 UPDATE_Grass="N"
-UPDATE_ProxyRack="N"
+
 UPDATE_BlockMesh="N"
 UPDATE_Titan="N"
 #目前無法賺錢的
@@ -94,6 +95,8 @@ process_container "EarnApp" "$UPDATE_EarnApp" "earnapp" "$SLEEP_TIME" "$ACTION"
 process_container "IPRoyal" "$UPDATE_IPRoyal" "iproyal" "$SLEEP_TIME" "$ACTION"
 process_container "PacketStream" "$UPDATE_PacketStream" "packetstream" "$SLEEP_TIME" "$ACTION"
 process_container "EarnFm" "$UPDATE_EarnFm" "earnfm" "$SLEEP_TIME" "$ACTION"
+process_container "ProxyRack" "$UPDATE_ProxyRack" "proxyrack" "$SLEEP_TIME" "$ACTION"
+process_container "Repocket" "$UPDATE_Repocket" "repocket" "$SLEEP_TIME" "$ACTION"
 
 # 清理沒有 tag 的 images
 echo "清理未標記的 images..."
