@@ -70,6 +70,8 @@ process_container() {
     local action_flag=$5
 
     if [[ "$update_flag" == "Y" ]]; then      
+         # 確保目標目錄存在
+        sudo mkdir -p "${BASE_DIR}/$project_name"
         
         echo "[$container_name] 下載 設定 ...$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/run.sh"
         sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${BASE_DIR}/$project_name/run.sh" "$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/run.sh"
