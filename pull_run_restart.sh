@@ -81,7 +81,7 @@ process_container() {
         echo "[$container_name] 下載 設定 ...$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/run.sh"
         sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${BASE_DIR}/$project_name/run.sh" "$GITHUB_API/${project_name}/${CONTAINER_ACCOUNTS[$project_name]}/run.sh"
         
-        sudo bash ${BASE_DIR}/$project_name/run.sh 
+        sudo bash -x ${BASE_DIR}/$project_name/run.sh 
     else
         echo "[$container_name] 使用 Podman 重新啟動容器..."
         sudo podman container stop "$container_name"      
