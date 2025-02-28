@@ -47,19 +47,12 @@ UPDATE_PacketStream="Y"
 UPDATE_EarnFm="Y"
 UPDATE_ProxyRack="Y"
 UPDATE_Repocket="Y"
-
-UPDATE_Traffmonetizer2="N"
-
-
-
-
-UPDATE_Grass="N"
-
-UPDATE_BlockMesh="N"
 UPDATE_Titan="N"
-#目前無法賺錢的
-#Grass / Dawn / BlockMesh / DistributeAi
 
+#以下目前無法賺錢的
+UPDATE_Traffmonetizer2="N"
+UPDATE_Grass="N"
+UPDATE_BlockMesh="N"
 
 # 下載並執行腳本
 process_container() {
