@@ -39,7 +39,6 @@ for key in "${!CONTAINER_ACCOUNTS[@]}"; do
 done
 
 # 設定每個容器是否需要從 GitHub 下載更新 (Y=下載，N=本地方式)
-
 UPDATE_OpenLoop="Y"
 UPDATE_Teneo="Y"
 UPDATE_Gaea="Y"
@@ -47,27 +46,12 @@ UPDATE_Bless="Y"
 UPDATE_DePINed="Y"
 UPDATE_MinionLab="Y"
 UPDATE_NodePay="Y"
-UPDATE_DistributeAi="N"
 UPDATE_Nodego="Y"
 UPDATE_Sparkchain="Y"
 UPDATE_Naoris="Y"
+#以下目前無法賺錢的
 UPDATE_Dawn="N"
-
-UPDATE_HoneyGain="N"
-UPDATE_Traffmonetizer="N"
-UPDATE_Traffmonetizer2="N"
-UPDATE_EarnApp="N"
-UPDATE_Repocket="N"
-UPDATE_PacketStream="N"
-UPDATE_EarnFm="N"
-UPDATE_IPRoyal="N"
-UPDATE_Grass="N"
-UPDATE_ProxyRack="N"
-UPDATE_BlockMesh="N"
-UPDATE_Titan="N"
-#目前無法賺錢的
-#Grass / Dawn / BlockMesh / DistributeAi
-
+UPDATE_DistributeAi="N"
 
 # 下載並執行腳本
 process_container() {
