@@ -47,7 +47,7 @@ UPDATE_PacketStream="Y"
 UPDATE_EarnFm="Y"
 UPDATE_ProxyRack="Y"
 UPDATE_Repocket="Y"
-UPDATE_Titan="N"
+UPDATE_Titan="Y"
 
 #以下目前無法賺錢的
 UPDATE_Traffmonetizer2="N"
@@ -97,6 +97,7 @@ process_container "PacketStream" "$UPDATE_PacketStream" "packetstream" "$SLEEP_T
 process_container "EarnFm" "$UPDATE_EarnFm" "earnfm" "$SLEEP_TIME" "$ACTION"
 process_container "ProxyRack" "$UPDATE_ProxyRack" "proxyrack" "$SLEEP_TIME" "$ACTION"
 process_container "Repocket" "$UPDATE_Repocket" "repocket" "$SLEEP_TIME" "$ACTION"
+process_container "Titan" "$UPDATE_Titan" "titan" "$SLEEP_TIME" "$ACTION"
 
 # 清理沒有 tag 的 images
 echo "清理未標記的 images..."
