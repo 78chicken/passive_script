@@ -2,6 +2,7 @@
 BASE_DIR="/opt"
 SLEEP_TIME=${1:-30s}  # 預設值為 30 秒
 ACTION=${2:-START}    # 預設為 START
+PASS=${3:-false}      # 預設為 false，不跳過
 
 # 取得 ens192 的 IPv4 最後一組數字
 LAST_IP_OCTET=$(hostname -I | awk '{split($1, ip, "."); print ip[4]}')
@@ -61,7 +62,13 @@ process_container() {
     local project_name=$3
     local sleep_time=$4
     local action_flag=$5
+    local pass_flag=$6
 
+    if [[ "$pass_flag" == "true" ]]; then
+        echo "[$container_name] 略過此容器 (pass=true)"
+        return
+    fi
+    
     if [[ -z "${CONTAINER_ACCOUNTS[$project_name]}" ]]; then
         echo "[$container_name] 錯誤: 找不到對應的帳號，跳過此容器"
         return
@@ -98,6 +105,7 @@ process_container "EarnFm" "$UPDATE_EarnFm" "earnfm" "$SLEEP_TIME" "$ACTION"
 process_container "ProxyRack" "$UPDATE_ProxyRack" "proxyrack" "$SLEEP_TIME" "$ACTION"
 process_container "Repocket" "$UPDATE_Repocket" "repocket" "$SLEEP_TIME" "$ACTION"
 process_container "Titan" "$UPDATE_Titan" "titan" "$SLEEP_TIME" "$ACTION"
+process_container "Grass" "$UPDATE_Grass" "titan" "$SLEEP_TIME" "STOP"
 
 # 清理沒有 tag 的 images
 echo "清理未標記的 images..."
