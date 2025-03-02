@@ -50,10 +50,8 @@ UPDATE_ProxyRack="Y"
 UPDATE_Repocket="Y"
 UPDATE_Titan="Y"
 UPDATE_Grass="Y"
+UPDATE_BlockMesh="Y"
 
-#以下目前無法賺錢的
-UPDATE_Traffmonetizer2="N"
-UPDATE_BlockMesh="N"
 
 # 下載並執行腳本
 process_container() {
@@ -104,6 +102,7 @@ process_container "ProxyRack" "$UPDATE_ProxyRack" "proxyrack" "$SLEEP_TIME" "$AC
 process_container "Repocket" "$UPDATE_Repocket" "repocket" "$SLEEP_TIME" "$ACTION"
 process_container "Titan" "$UPDATE_Titan" "titan" "$SLEEP_TIME" "$ACTION"
 process_container "Grass" "$UPDATE_Grass" "grass" "$SLEEP_TIME" "STOP"
+process_container "BlockMesh" "$UPDATE_BlockMesh" "blockmesh" "$SLEEP_TIME" "$ACTION"
 
 # 清理沒有 tag 的 images
 echo "清理未標記的 images..."
