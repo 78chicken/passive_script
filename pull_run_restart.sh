@@ -49,10 +49,10 @@ UPDATE_EarnFm="Y"
 UPDATE_ProxyRack="Y"
 UPDATE_Repocket="Y"
 UPDATE_Titan="Y"
+UPDATE_Grass="Y"
 
 #以下目前無法賺錢的
 UPDATE_Traffmonetizer2="N"
-UPDATE_Grass="N"
 UPDATE_BlockMesh="N"
 
 # 下載並執行腳本
@@ -62,12 +62,6 @@ process_container() {
     local project_name=$3
     local sleep_time=$4
     local action_flag=$5
-    local pass_flag=$6
-
-    if [[ "$pass_flag" == "true" ]]; then
-        echo "[$container_name] 略過此容器 (pass=true)"
-        return
-    fi
     
     if [[ -z "${CONTAINER_ACCOUNTS[$project_name]}" ]]; then
         echo "[$container_name] 錯誤: 找不到對應的帳號，跳過此容器"
@@ -75,6 +69,10 @@ process_container() {
     fi
 
     if [[ "$update_flag" == "Y" ]]; then      
+        if [[ "$action_flag" == "STOP" ]]; then
+            echo "[$container_name] 動作為 STOP，跳過下載與執行"
+            return
+        fi
          # 確保目標目錄存在
         sudo mkdir -p "${BASE_DIR}/$project_name"
         
@@ -105,7 +103,7 @@ process_container "EarnFm" "$UPDATE_EarnFm" "earnfm" "$SLEEP_TIME" "$ACTION"
 process_container "ProxyRack" "$UPDATE_ProxyRack" "proxyrack" "$SLEEP_TIME" "$ACTION"
 process_container "Repocket" "$UPDATE_Repocket" "repocket" "$SLEEP_TIME" "$ACTION"
 process_container "Titan" "$UPDATE_Titan" "titan" "$SLEEP_TIME" "$ACTION"
-process_container "Grass" "$UPDATE_Grass" "titan" "$SLEEP_TIME" "STOP"
+process_container "Grass" "$UPDATE_Grass" "grass" "$SLEEP_TIME" "STOP"
 
 # 清理沒有 tag 的 images
 echo "清理未標記的 images..."
