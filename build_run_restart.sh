@@ -39,6 +39,7 @@ for key in "${!CONTAINER_ACCOUNTS[@]}"; do
 done
 
 # 設定每個容器是否需要從 GitHub 下載更新 (Y=下載，N=本地方式)
+UPDATE_Dawn="Y"
 UPDATE_OpenLoop="Y"
 UPDATE_Teneo="Y"
 UPDATE_Gaea="Y"
@@ -50,7 +51,6 @@ UPDATE_Nodego="Y"
 UPDATE_Sparkchain="Y"
 UPDATE_Naoris="Y"
 #以下目前無法賺錢的
-UPDATE_Dawn="N"
 UPDATE_DistributeAi="N"
 
 # 下載並執行腳本
@@ -98,6 +98,7 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
+process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Naoris" "$UPDATE_Naoris" "naoris" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "OpenLoop" "$UPDATE_OpenLoop" "openloop" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Teneo" "$UPDATE_Teneo" "teneo" "tokens.txt" "$SLEEP_TIME" "$ACTION"
@@ -109,7 +110,7 @@ process_container "NodePay" "$UPDATE_NodePay" "nodepay" "tokens.txt" "$SLEEP_TIM
 process_container "DistributeAi" "$UPDATE_DistributeAi" "distributeai" "accounts.json" "$SLEEP_TIME" "STOP"
 process_container "Nodego" "$UPDATE_Nodego" "nodego" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Sparkchain" "$UPDATE_Sparkchain" "sparkchain" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.json" "$SLEEP_TIME" "STOP"
+
 
 
 
