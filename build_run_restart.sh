@@ -98,7 +98,7 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
-process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.json" "$SLEEP_TIME" "$ACTION"
+process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Naoris" "$UPDATE_Naoris" "naoris" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "OpenLoop" "$UPDATE_OpenLoop" "openloop" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Teneo" "$UPDATE_Teneo" "teneo" "tokens.txt" "$SLEEP_TIME" "$ACTION"
