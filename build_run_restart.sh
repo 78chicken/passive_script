@@ -52,6 +52,7 @@ UPDATE_Sparkchain="Y"
 UPDATE_Naoris="Y"
 UPDATE_GoKiteAi="Y"
 UPDATE_3Dos="Y"
+UPDATE_Stork="Y"
 #以下目前無法賺錢的
 UPDATE_DistributeAi="N"
 
@@ -100,6 +101,7 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
+process_container "Stork" "$UPDATE_Stork" "stork" "accounts.js" "$SLEEP_TIME" "$ACTION"
 process_container "3Dos" "$UPDATE_3Dos" "3dos" "token.txt" "$SLEEP_TIME" "$ACTION"
 process_container "GoKiteAi" "$UPDATE_GoKiteAi" "gokiteai" "" "$SLEEP_TIME" "$ACTION"
 process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.txt" "$SLEEP_TIME" "$ACTION"
