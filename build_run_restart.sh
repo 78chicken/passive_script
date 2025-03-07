@@ -53,7 +53,7 @@ UPDATE_Naoris="Y"
 UPDATE_GoKiteAi="Y"
 UPDATE_3Dos="Y"
 UPDATE_Stork="Y"
-UPDATE_DistributeAi="Y"
+UPDATE_DistributeAi="N"
 #以下目前無法賺錢的
 
 
@@ -114,7 +114,7 @@ process_container "Bless" "$UPDATE_Bless" "bless" "accounts.json" "$SLEEP_TIME" 
 process_container "DePINed" "$UPDATE_DePINed" "depined" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "MinionLab" "$UPDATE_MinionLab" "minionlab" "accounts.json" "$SLEEP_TIME" "STOP"
 process_container "NodePay" "$UPDATE_NodePay" "nodepay" "tokens.txt" "$SLEEP_TIME" "$ACTION"
-process_container "DistributeAi" "$UPDATE_DistributeAi" "distributeai" "accounts.json" "$SLEEP_TIME" "$ACTION"
+process_container "DistributeAi" "$UPDATE_DistributeAi" "distributeai" "accounts.json" "$SLEEP_TIME" "STOP"
 process_container "Nodego" "$UPDATE_Nodego" "nodego" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Sparkchain" "$UPDATE_Sparkchain" "sparkchain" "accounts.json" "$SLEEP_TIME" "$ACTION"
 
