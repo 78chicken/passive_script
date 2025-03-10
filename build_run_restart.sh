@@ -54,7 +54,7 @@ UPDATE_GoKiteAi="Y"
 UPDATE_3Dos="Y"
 UPDATE_Stork="Y"
 UPDATE_Capfizz="Y"
-UPDATE_Unich="N"
+UPDATE_Unich="Y"
 UPDATE_DistributeAi="N"
 #以下目前無法賺錢的
 
