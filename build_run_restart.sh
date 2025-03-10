@@ -54,6 +54,7 @@ UPDATE_GoKiteAi="Y"
 UPDATE_3Dos="Y"
 UPDATE_Stork="Y"
 UPDATE_Capfizz="Y"
+UPDATE_Unich="N"
 UPDATE_DistributeAi="N"
 #以下目前無法賺錢的
 
@@ -103,6 +104,7 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
+process_container "Unich" "$UPDATE_Unich" "unich" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Capfizz" "$UPDATE_Capfizz" "capfizz" "cookies.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Stork" "$UPDATE_Stork" "stork" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "3Dos" "$UPDATE_3Dos" "3dos" "token.txt" "$SLEEP_TIME" "$ACTION"
