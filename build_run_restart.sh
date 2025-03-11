@@ -56,7 +56,7 @@ UPDATE_Stork="Y"
 UPDATE_Capfizz="Y"
 UPDATE_Unich="Y"
 UPDATE_DistributeAi="N"
-UPDATE_Kivanet="N"
+UPDATE_Kivanet="Y"
 #以下目前無法賺錢的
 
 
