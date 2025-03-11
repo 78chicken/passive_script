@@ -56,6 +56,7 @@ UPDATE_Stork="Y"
 UPDATE_Capfizz="Y"
 UPDATE_Unich="Y"
 UPDATE_DistributeAi="N"
+UPDATE_Kivanet="N"
 #以下目前無法賺錢的
 
 
@@ -104,6 +105,7 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
+process_container "Kivanet" "$UPDATE_Kivanet" "kivanet" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Unich" "$UPDATE_Unich" "unich" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Capfizz" "$UPDATE_Capfizz" "capfizz" "cookies.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Stork" "$UPDATE_Stork" "stork" "tokens.txt" "$SLEEP_TIME" "$ACTION"
@@ -116,7 +118,7 @@ process_container "Teneo" "$UPDATE_Teneo" "teneo" "tokens.txt" "$SLEEP_TIME" "$A
 process_container "Gaea" "$UPDATE_Gaea" "gaea" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Bless" "$UPDATE_Bless" "bless" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "DePINed" "$UPDATE_DePINed" "depined" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "MinionLab" "$UPDATE_MinionLab" "minionlab" "accounts.json" "$SLEEP_TIME" "STOP"
+process_container "MinionLab" "$UPDATE_MinionLab" "minionlab" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "NodePay" "$UPDATE_NodePay" "nodepay" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "DistributeAi" "$UPDATE_DistributeAi" "distributeai" "accounts.json" "$SLEEP_TIME" "STOP"
 process_container "Nodego" "$UPDATE_Nodego" "nodego" "tokens.txt" "$SLEEP_TIME" "$ACTION"
