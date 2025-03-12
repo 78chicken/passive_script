@@ -6,4 +6,5 @@ sudo podman images -f "dangling=true" -q | xargs sudo podman rmi -f
 echo "清理未使用的 images..."
 sudo podman image prune -a -f
 # 清理未使用的 volume
+echo "清理未使用的 volume..."
 sudo podman volume prune -f
