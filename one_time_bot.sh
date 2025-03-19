@@ -10,14 +10,14 @@ sudo podman run -d --rm --replace -m 40m -v ${QUEST_DIR}/unich/tokens.txt:/app/u
 sleep 30s 
 sudo podman stop Unich
 
-＃HahaWallet
+#HahaWallet
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/hahawallet/accounts.json" "$GITHUB_API/hahawallet/jyhfengli/accounts.json"
 echo "download $GITHUB_API/hahawallet/jyhfengli/accounts.json to ${QUEST_DIR}/hahawallet/accounts.json"
 sudo podman run -d --rm --replace -m 40m -v ${QUEST_DIR}/hahawallet/accounts.json:/app/hahawallet/accounts.json:Z --name HahaWallet docker.io/78chicken/hahawallet:latest
 sleep 30s 
 sudo podman stop HahaWallet
 
-＃DreamerQuests
+#DreamerQuests
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/dreamerquests/cookies.txt" "$GITHUB_API/dreamerquests/all/cookies.txt"
 echo "download $GITHUB_API/dreamerquests/all/cookies.txt to ${QUEST_DIR}/dreamerquests/cookies.txt"
 sudo podman run -d --rm --replace -m 40m -v ${QUEST_DIR}/dreamerquests/cookies.txt:/app/dreamerquests/cookies.txt:Z --name DreamerQuests docker.io/78chicken/dreamerquests:latest
