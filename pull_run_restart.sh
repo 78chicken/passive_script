@@ -49,7 +49,7 @@ UPDATE_EarnFm="Y"
 UPDATE_ProxyRack="Y"
 UPDATE_Repocket="Y"
 UPDATE_Titan="Y"
-UPDATE_Grass="N"
+UPDATE_Grass="Y"
 UPDATE_BlockMesh="Y"
 
 
