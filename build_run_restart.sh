@@ -110,7 +110,7 @@ process_container "Kivanet" "$UPDATE_Kivanet" "kivanet" "accounts.json" "$SLEEP_
 process_container "Flow3" "$UPDATE_Flow3" "flow3" "accounts.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Unich" "$UPDATE_Unich" "unich" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Capfizz" "$UPDATE_Capfizz" "capfizz" "cookies.txt" "$SLEEP_TIME" "$ACTION"
-process_container "Stork" "$UPDATE_Stork" "stork" "tokens.txt" "$SLEEP_TIME" "STOP"
+process_container "Stork" "$UPDATE_Stork" "stork" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "3Dos" "$UPDATE_3Dos" "3dos" "token.txt" "$SLEEP_TIME" "$ACTION"
 process_container "GoKiteAi" "$UPDATE_GoKiteAi" "gokiteai" "" "$SLEEP_TIME" "$ACTION"
 process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.txt" "$SLEEP_TIME" "$ACTION"
