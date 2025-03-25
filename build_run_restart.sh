@@ -58,6 +58,7 @@ UPDATE_Unich="Y"
 UPDATE_DistributeAi="Y"
 UPDATE_Kivanet="Y"
 UPDATE_Flow3="Y"
+UPDATE_ByData="Y"
 #以下目前無法賺錢的
 
 
@@ -106,6 +107,7 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
+process_container "ByData" "$UPDATE_ByData" "bydata" "accounts.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Kivanet" "$UPDATE_Kivanet" "kivanet" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Flow3" "$UPDATE_Flow3" "flow3" "accounts.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Unich" "$UPDATE_Unich" "unich" "tokens.txt" "$SLEEP_TIME" "$ACTION"
