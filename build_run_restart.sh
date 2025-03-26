@@ -2,9 +2,15 @@
 BASE_DIR="/opt"
 SLEEP_TIME=${1:-30s}  # 預設值為 30 秒
 ACTION=${2:-START}    # 預設為 START
+CUSTOM_IP_OCTET=${3}  # 第三個參數作為最後一段 IP
 
-# 取得 ens192 的 IPv4 最後一組數字
-LAST_IP_OCTET=$(hostname -I | awk '{split($1, ip, "."); print ip[4]}')
+# 如果有提供第三個參數則使用，否則取得 ens192 的 IPv4 最後一組數字
+if [[ -n "$CUSTOM_IP_OCTET" ]]; then
+    LAST_IP_OCTET="$CUSTOM_IP_OCTET"
+else
+    LAST_IP_OCTET=$(hostname -I | awk '{split($1, ip, "."); print ip[4]}')
+fi
+
 echo "本機 IP 最後一組數字: $LAST_IP_OCTET"
 
 # GitHub API 設定
