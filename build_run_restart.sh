@@ -128,7 +128,7 @@ process_container "3Dos" "$UPDATE_3Dos" "3dos" "token.txt" "$SLEEP_TIME" "$ACTIO
 process_container "GoKiteAi" "$UPDATE_GoKiteAi" "gokiteai" "" "$SLEEP_TIME" "$ACTION"
 process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Naoris" "$UPDATE_Naoris" "naoris" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "OpenLoop" "$UPDATE_OpenLoop" "openloop" "accounts.json" "$SLEEP_TIME" "$ACTION"
+process_container "OpenLoop" "$UPDATE_OpenLoop" "openloop" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Teneo" "$UPDATE_Teneo" "teneo" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Gaea" "$UPDATE_Gaea" "gaea" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Bless" "$UPDATE_Bless" "bless" "accounts.json" "$SLEEP_TIME" "$ACTION"
