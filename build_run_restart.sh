@@ -66,8 +66,8 @@ UPDATE_Kivanet="Y"
 UPDATE_Flow3="Y"
 UPDATE_ByData="Y"
 UPDATE_OpenLedger="Y"
-UPDATE_OptimAi="Y"
-UPDATE_Exeos="Y"
+UPDATE_OptimAi="N"
+UPDATE_Exeos="N"
 
 #以下目前無法賺錢的
 
@@ -117,8 +117,8 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
-process_container "Exeos" "$UPDATE_Exeos" "exeos" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "OptimAi" "$UPDATE_OptimAi" "optimai" "tokens.txt" "$SLEEP_TIME" "$ACTION"
+process_container "Exeos" "$UPDATE_Exeos" "exeos" "accounts.json" "$SLEEP_TIME" "STOP"
+process_container "OptimAi" "$UPDATE_OptimAi" "optimai" "tokens.txt" "$SLEEP_TIME" "STOP"
 process_container "OpenLedger" "$UPDATE_OpenLedger" "openledger" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "ByData" "$UPDATE_ByData" "bydata" "accounts.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Kivanet" "$UPDATE_Kivanet" "kivanet" "accounts.json" "$SLEEP_TIME" "$ACTION"
