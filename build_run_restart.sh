@@ -58,20 +58,19 @@ UPDATE_Sparkchain="Y"
 UPDATE_Naoris="Y"
 UPDATE_GoKiteAi="Y"
 UPDATE_3Dos="Y"
-UPDATE_Stork="N"
-UPDATE_Capfizz="N"
 UPDATE_Unich="Y"
 UPDATE_DistributeAi="Y"
 UPDATE_Kivanet="Y"
 UPDATE_Flow3="Y"
 UPDATE_ByData="Y"
 UPDATE_OpenLedger="Y"
-UPDATE_OptimAi="N"
-UPDATE_Exeos="N"
 UPDATE_Meganet="Y"
 
 #以下目前無法賺錢的
-
+UPDATE_Stork="N"
+UPDATE_Capfizz="N"
+UPDATE_OptimAi="N"
+UPDATE_Exeos="N"
 
 # 下載並執行腳本
 process_container() {
