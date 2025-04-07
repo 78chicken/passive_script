@@ -6,7 +6,7 @@ GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 #TakerProtocol
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/takerprotocol/accounts.txt" "$GITHUB_API/takerprotocol/all/accounts.txt"
 echo "download $GITHUB_API/takerprotocol/all/accounts.txt to ${QUEST_DIR}/takerprotocol/accounts.txt"
-sudo podman run -d --rm --replace -m 40m -v ${QUEST_DIR}/takerprotocol/accounts.txt:/app/monadscore/takerprotocol.txt:Z --name TakerProtocol docker.io/78chicken/takerprotocol:latest
+sudo podman run -d --rm --replace -m 40m -v ${QUEST_DIR}/takerprotocol/accounts.txt:/app/takerprotocol/accounts.txt:Z --name TakerProtocol docker.io/78chicken/takerprotocol:latest
 sleep 60s 
 sudo podman stop TakerProtocol
 
