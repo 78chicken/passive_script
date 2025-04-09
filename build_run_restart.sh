@@ -61,7 +61,7 @@ UPDATE_3Dos="Y"
 UPDATE_Unich="Y"
 UPDATE_DistributeAi="Y"
 UPDATE_Kivanet="Y"
-UPDATE_Flow3="Y"
+UPDATE_Flow3="N"
 UPDATE_ByData="Y"
 UPDATE_OpenLedger="Y"
 UPDATE_Meganet="Y"
@@ -88,6 +88,7 @@ process_container() {
 
     if [[ "$update_flag" == "Y" ]]; then
         if [[ "$action_flag" == "STOP" ]]; then
+            sudo podman container stop "$container_name" 
             echo "[$container_name] 動作為 STOP，跳過下載與執行"
             return
         fi
