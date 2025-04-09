@@ -69,7 +69,7 @@ UPDATE_Meganet="Y"
 #以下目前無法賺錢的
 UPDATE_Stork="N"
 UPDATE_Capfizz="N"
-UPDATE_OptimAi="N"
+UPDATE_OptimAi="Y"
 UPDATE_Exeos="N"
 
 # 下載並執行腳本
@@ -120,7 +120,7 @@ process_container() {
 # 依據設定執行不同的更新方式
 process_container "Meganet" "$UPDATE_Meganet" "meganet" "accounts.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Exeos" "$UPDATE_Exeos" "exeos" "accounts.json" "$SLEEP_TIME" "STOP"
-process_container "OptimAi" "$UPDATE_OptimAi" "optimai" "tokens.txt" "$SLEEP_TIME" "STOP"
+process_container "OptimAi" "$UPDATE_OptimAi" "optimai" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "OpenLedger" "$UPDATE_OpenLedger" "openledger" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "ByData" "$UPDATE_ByData" "bydata" "accounts.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Kivanet" "$UPDATE_Kivanet" "kivanet" "accounts.json" "$SLEEP_TIME" "$ACTION"
