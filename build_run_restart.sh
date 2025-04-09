@@ -61,7 +61,7 @@ UPDATE_3Dos="Y"
 UPDATE_Unich="Y"
 UPDATE_DistributeAi="Y"
 UPDATE_Kivanet="Y"
-UPDATE_Flow3="N"
+UPDATE_OptimAi="Y"
 UPDATE_ByData="Y"
 UPDATE_OpenLedger="Y"
 UPDATE_Meganet="Y"
@@ -69,7 +69,7 @@ UPDATE_Meganet="Y"
 #以下目前無法賺錢的
 UPDATE_Stork="N"
 UPDATE_Capfizz="N"
-UPDATE_OptimAi="Y"
+UPDATE_Flow3="N"
 UPDATE_Exeos="N"
 
 # 下載並執行腳本
