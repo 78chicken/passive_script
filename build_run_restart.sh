@@ -64,9 +64,10 @@ UPDATE_Kivanet="Y"
 UPDATE_OptimAi="Y"
 UPDATE_ByData="Y"
 UPDATE_OpenLedger="Y"
-UPDATE_Meganet="Y"
+
 
 #以下目前無法賺錢的
+UPDATE_Meganet="N"
 UPDATE_Stork="N"
 UPDATE_Capfizz="N"
 UPDATE_Flow3="N"
