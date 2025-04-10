@@ -119,7 +119,7 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
-process_container "Meganet" "$UPDATE_Meganet" "meganet" "accounts.txt" "$SLEEP_TIME" "STOP"
+process_container "Meganet" "$UPDATE_Meganet" "meganet" "accounts.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Exeos" "$UPDATE_Exeos" "exeos" "accounts.json" "$SLEEP_TIME" "STOP"
 process_container "OptimAi" "$UPDATE_OptimAi" "optimai" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "OpenLedger" "$UPDATE_OpenLedger" "openledger" "accounts.json" "$SLEEP_TIME" "$ACTION"
