@@ -67,7 +67,7 @@ UPDATE_OpenLedger="Y"
 
 
 #以下目前無法賺錢的
-UPDATE_Meganet="N"
+UPDATE_Meganet="Y"
 UPDATE_Stork="N"
 UPDATE_Capfizz="N"
 UPDATE_Flow3="N"
