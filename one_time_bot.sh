@@ -4,6 +4,13 @@ GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 
 #Coresky
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/zeroswallet/accounts.txt" "$GITHUB_API/zeroswallet/all/accounts.txt"
+echo "download $GITHUB_API/zeroswallet/all/accounts.txt to ${QUEST_DIR}/zeroswallet/accounts.txt"
+sudo podman run -d --rm --replace -m 40m -v ${QUEST_DIR}/zeroswallet/accounts.txt:/app/zeroswallet/accounts.txt:Z --name ZerosWallet docker.io/78chicken/zeroswallet:latest
+sleep 180s 
+sudo podman stop ZerosWallet
+
+#Coresky
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/coresky/accounts.txt" "$GITHUB_API/coresky/all/accounts.txt"
 echo "download $GITHUB_API/coresky/all/accounts.txt to ${QUEST_DIR}/coresky/accounts.txt"
 sudo podman run -d --rm --replace -m 40m -v ${QUEST_DIR}/coresky/accounts.txt:/app/coresky/accounts.txt:Z --name Coresky docker.io/78chicken/coresky:latest
