@@ -4,7 +4,7 @@ GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 
 #kivanet
-sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/kivanet/accounts.json" "$GITHUB_API/kivanet/all/accounts.json"
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/kivanet/accounts.json" "$GITHUB_API/kivanet/jyhfengli/accounts.json"
 echo "download $GITHUB_API/kivanet/all/accounts.json to ${QUEST_DIR}/kivanet/accounts.json"
 sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/kivanet/accounts.json:/app/kivanet/accounts.json:Z --name Kivanet docker.io/78chicken/kivanet:latest
 sleep 60s 
