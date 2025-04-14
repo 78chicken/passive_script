@@ -3,11 +3,18 @@ QUEST_DIR="${BASE_DIR}/quest"
 GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 
+#kivanet
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/kivanet/accounts.json" "$GITHUB_API/kivanet/all/accounts.json"
+echo "download $GITHUB_API/kivanet/all/accounts.json to ${QUEST_DIR}/kivanet/accounts.json"
+sudo podman run -d --rm --replace -m 40m -v ${QUEST_DIR}/kivanet/accounts.json:/app/kivanet/accounts.json:Z --name Kivanet docker.io/78chicken/kivanet:latest
+sleep 60s 
+sudo podman stop Kivanet
+
 #zeroswallet
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/zeroswallet/accounts.txt" "$GITHUB_API/zeroswallet/all/accounts.txt"
 echo "download $GITHUB_API/zeroswallet/all/accounts.txt to ${QUEST_DIR}/zeroswallet/accounts.txt"
 sudo podman run -d --rm --replace -m 40m -v ${QUEST_DIR}/zeroswallet/accounts.txt:/app/zeroswallet/accounts.txt:Z --name ZerosWallet docker.io/78chicken/zeroswallet:latest
-sleep 180s 
+sleep 120s 
 sudo podman stop ZerosWallet
 
 #Coresky
