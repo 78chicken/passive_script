@@ -66,11 +66,11 @@ UPDATE_ByData="Y"
 UPDATE_OpenLedger="Y"
 UPDATE_Mygate="Y"
 UPDATE_Meganet="Y"
+UPDATE_Flow3="Y"
 
 #以下目前無法賺錢的
-UPDATE_Stork="N"
+UPDATE_Stork="Y"
 UPDATE_Capfizz="N"
-UPDATE_Flow3="Y"
 UPDATE_Exeos="N"
 
 # 下載並執行腳本
@@ -129,7 +129,7 @@ process_container "Kivanet" "$UPDATE_Kivanet" "kivanet" "accounts.json" "$SLEEP_
 process_container "Flow3" "$UPDATE_Flow3" "flow3" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Unich" "$UPDATE_Unich" "unich" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 #process_container "Capfizz" "$UPDATE_Capfizz" "capfizz" "cookies.txt" "$SLEEP_TIME" "STOP"
-process_container "Stork" "$UPDATE_Stork" "stork" "tokens.txt" "$SLEEP_TIME" "STOP"
+process_container "Stork" "$UPDATE_Stork" "stork" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "3Dos" "$UPDATE_3Dos" "3dos" "token.txt" "$SLEEP_TIME" "$ACTION"
 process_container "GoKiteAi" "$UPDATE_GoKiteAi" "gokiteai" "" "$SLEEP_TIME" "$ACTION"
 process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.txt" "$SLEEP_TIME" "$ACTION"
