@@ -2,6 +2,14 @@ BASE_DIR="/opt/build_image"
 QUEST_DIR="${BASE_DIR}/quest"
 GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
+
+#Unich
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/unich/tokens.txt" "$GITHUB_API/unich/all/tokens.txt"
+echo "download $GITHUB_API/unich/all/tokens.txt to ${QUEST_DIR}/unich/tokens.txt"
+sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/unich/tokens.txt:/app/unich/tokens.txt:Z --name Unich docker.io/78chicken/unich:latest
+sleep 30s 
+sudo podman stop Unich
+
 #PuzzleMania
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/puzzlemania/accounts.txt" "$GITHUB_API/puzzlemania/all/accounts.txt"
 echo "download $GITHUB_API/puzzlemania/all/accounts.txt to ${QUEST_DIR}/puzzlemania/accounts.txt"
@@ -45,18 +53,11 @@ sleep 180s
 sudo podman stop MonadScore
 
 #ByData
-sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/bydata/accounts.txt" "$GITHUB_API/bydata/all/accounts.txt"
-echo "download $GITHUB_API/bydata/all/accounts.txt to ${QUEST_DIR}/bydata/accounts.txt"
-sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/bydata/accounts.txt:/app/bydata/accounts.txt:Z --name ByData docker.io/78chicken/bydata:latest
-sleep 300s 
-sudo podman stop ByData
-
-#Unich
-sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/unich/tokens.txt" "$GITHUB_API/unich/all/tokens.txt"
-echo "download $GITHUB_API/unich/all/tokens.txt to ${QUEST_DIR}/unich/tokens.txt"
-sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/unich/tokens.txt:/app/unich/tokens.txt:Z --name Unich docker.io/78chicken/unich:latest
-sleep 30s 
-sudo podman stop Unich
+#sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/bydata/accounts.txt" "$GITHUB_API/bydata/all/accounts.txt"
+#echo "download $GITHUB_API/bydata/all/accounts.txt to ${QUEST_DIR}/bydata/accounts.txt"
+#sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/bydata/accounts.txt:/app/bydata/accounts.txt:Z --name ByData docker.io/78chicken/bydata:latest
+#sleep 300s 
+#sudo podman stop ByData
 
 #HahaWallet
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/hahawallet/accounts.json" "$GITHUB_API/hahawallet/jyhfengli/accounts.json"
