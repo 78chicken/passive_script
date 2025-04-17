@@ -2,6 +2,12 @@ BASE_DIR="/opt/build_image"
 QUEST_DIR="${BASE_DIR}/quest"
 GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
+#PuzzleMania
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/puzzlemania/accounts.txt" "$GITHUB_API/puzzlemania/all/accounts.txt"
+echo "download $GITHUB_API/puzzlemania/all/accounts.txt to ${QUEST_DIR}/puzzlemania/accounts.txt"
+sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/puzzlemania/accounts.txt:/app/puzzlemania/accounts.txt:Z --name PuzzleMania docker.io/78chicken/puzzlemania:latest
+sleep 120s 
+sudo podman stop PuzzleMania
 
 #kivanet
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/kivanet/accounts.json" "$GITHUB_API/kivanet/jyhfengli/accounts.json"
