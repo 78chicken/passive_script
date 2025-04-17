@@ -6,7 +6,7 @@ GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/puzzlemania/accounts.txt" "$GITHUB_API/puzzlemania/all/accounts.txt"
 echo "download $GITHUB_API/puzzlemania/all/accounts.txt to ${QUEST_DIR}/puzzlemania/accounts.txt"
 sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/puzzlemania/accounts.txt:/app/puzzlemania/accounts.txt:Z --name PuzzleMania docker.io/78chicken/puzzlemania:latest
-sleep 120s 
+sleep 90s 
 sudo podman stop PuzzleMania
 
 #kivanet
