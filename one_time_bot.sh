@@ -2,13 +2,20 @@ BASE_DIR="/opt/build_image"
 QUEST_DIR="${BASE_DIR}/quest"
 GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
+
+#GpuNet
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/gpunet/accounts.txt" "$GITHUB_API/gpunet/all/accounts.txt"
+echo "download $GITHUB_API/gpunet/all/accounts.txt to ${QUEST_DIR}/gpunet/accounts.txt"
+sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/gpunet/accounts.txt:/app/gpunet/accounts.txt:Z --name GpuNet docker.io/78chicken/gpunet:latest
+sleep 60s 
+sudo podman stop GpuNet
+
 #ByteNova
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/bytenova/accounts.txt" "$GITHUB_API/bytenova/all/accounts.txt"
 echo "download $GITHUB_API/bytenova/all/accounts.txt to ${QUEST_DIR}/bytenova/accounts.txt"
 sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/bytenova/accounts.txt:/app/bytenova/accounts.txt:Z --name ByteNova docker.io/78chicken/bytenova:latest
 sleep 60s 
 sudo podman stop ByteNova
-
 
 #Unich
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/unich/tokens.txt" "$GITHUB_API/unich/all/tokens.txt"
