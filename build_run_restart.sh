@@ -68,6 +68,7 @@ UPDATE_Mygate="Y"
 UPDATE_Meganet="N"
 UPDATE_Flow3="Y"
 UPDATE_Stork="Y"
+UPDATE_Solix="Y"
 
 #以下目前無法賺錢的
 UPDATE_Capfizz="N"
@@ -119,6 +120,7 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
+process_container "Solix" "$UPDATE_Solix" "solix" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Mygate" "$UPDATE_Mygate" "mygate" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Meganet" "$UPDATE_Meganet" "meganet" "accounts.txt" "$SLEEP_TIME" "STOP"
 process_container "Exeos" "$UPDATE_Exeos" "exeos" "accounts.json" "$SLEEP_TIME" "STOP"
