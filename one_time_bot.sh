@@ -66,8 +66,6 @@ sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/coresky/accounts.txt:/a
 sleep 60s 
 sudo podman stop Coresky
 
-
-
 #ByData
 #sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/bydata/accounts.txt" "$GITHUB_API/bydata/all/accounts.txt"
 #echo "download $GITHUB_API/bydata/all/accounts.txt to ${QUEST_DIR}/bydata/accounts.txt"
