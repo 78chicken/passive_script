@@ -3,6 +3,20 @@ QUEST_DIR="${BASE_DIR}/quest"
 GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 
+#zeroswallet
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/zeroswallet/accounts.txt" "$GITHUB_API/zeroswallet/all/accounts.txt"
+echo "download $GITHUB_API/zeroswallet/all/accounts.txt to ${QUEST_DIR}/zeroswallet/accounts.txt"
+sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/zeroswallet/accounts.txt:/app/zeroswallet/accounts.txt:Z --name ZerosWallet docker.io/78chicken/zeroswallet:latest
+sleep 120s 
+sudo podman stop ZerosWallet
+
+#Unich
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/unich/tokens.txt" "$GITHUB_API/unich/all/tokens.txt"
+echo "download $GITHUB_API/unich/all/tokens.txt to ${QUEST_DIR}/unich/tokens.txt"
+sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/unich/tokens.txt:/app/unich/tokens.txt:Z --name Unich docker.io/78chicken/unich:latest
+sleep 60s 
+sudo podman stop Unich
+
 #TakerProtocol
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/takerprotocol/accounts.txt" "$GITHUB_API/takerprotocol/all/accounts.txt"
 echo "download $GITHUB_API/takerprotocol/all/accounts.txt to ${QUEST_DIR}/takerprotocol/accounts.txt"
@@ -31,13 +45,6 @@ sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/bytenova/accounts.txt:/
 sleep 60s 
 sudo podman stop ByteNova
 
-#Unich
-sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/unich/tokens.txt" "$GITHUB_API/unich/all/tokens.txt"
-echo "download $GITHUB_API/unich/all/tokens.txt to ${QUEST_DIR}/unich/tokens.txt"
-sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/unich/tokens.txt:/app/unich/tokens.txt:Z --name Unich docker.io/78chicken/unich:latest
-sleep 60s 
-sudo podman stop Unich
-
 #PuzzleMania
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/puzzlemania/accounts.txt" "$GITHUB_API/puzzlemania/all/accounts.txt"
 echo "download $GITHUB_API/puzzlemania/all/accounts.txt to ${QUEST_DIR}/puzzlemania/accounts.txt"
@@ -51,13 +58,6 @@ echo "download $GITHUB_API/kivanet/jyhfengli/accounts.json to ${QUEST_DIR}/kivan
 sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/kivanet/accounts.json:/app/kivanet/accounts.json:Z --name Kivanet docker.io/78chicken/kivanet:latest
 sleep 60s 
 sudo podman stop Kivanet
-
-#zeroswallet
-sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/zeroswallet/accounts.txt" "$GITHUB_API/zeroswallet/all/accounts.txt"
-echo "download $GITHUB_API/zeroswallet/all/accounts.txt to ${QUEST_DIR}/zeroswallet/accounts.txt"
-sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/zeroswallet/accounts.txt:/app/zeroswallet/accounts.txt:Z --name ZerosWallet docker.io/78chicken/zeroswallet:latest
-sleep 120s 
-sudo podman stop ZerosWallet
 
 #Coresky
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/coresky/accounts.txt" "$GITHUB_API/coresky/all/accounts.txt"
