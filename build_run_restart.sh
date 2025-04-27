@@ -69,9 +69,9 @@ UPDATE_Meganet="N"
 UPDATE_Flow3="Y"
 UPDATE_Stork="Y"
 UPDATE_Solix="Y"
+UPDATE_CryplexAi="Y"
 
 #以下目前無法賺錢的
-UPDATE_Capfizz="N"
 UPDATE_Exeos="N"
 
 # 下載並執行腳本
@@ -120,17 +120,16 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
+process_container "CryplexAi" "$UPDATE_CryplexAi" "cryplexai" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Solix" "$UPDATE_Solix" "solix" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Mygate" "$UPDATE_Mygate" "mygate" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Meganet" "$UPDATE_Meganet" "meganet" "accounts.txt" "$SLEEP_TIME" "STOP"
 process_container "Exeos" "$UPDATE_Exeos" "exeos" "accounts.json" "$SLEEP_TIME" "STOP"
 process_container "OptimAi" "$UPDATE_OptimAi" "optimai" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "OpenLedger" "$UPDATE_OpenLedger" "openledger" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "ByData" "$UPDATE_ByData" "bydata" "accounts.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Kivanet" "$UPDATE_Kivanet" "kivanet" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Flow3" "$UPDATE_Flow3" "flow3" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Unich" "$UPDATE_Unich" "unich" "tokens.txt" "$SLEEP_TIME" "$ACTION"
-#process_container "Capfizz" "$UPDATE_Capfizz" "capfizz" "cookies.txt" "$SLEEP_TIME" "STOP"
 process_container "Stork" "$UPDATE_Stork" "stork" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "3Dos" "$UPDATE_3Dos" "3dos" "token.txt" "$SLEEP_TIME" "$ACTION"
 process_container "GoKiteAi" "$UPDATE_GoKiteAi" "gokiteai" "" "$SLEEP_TIME" "$ACTION"
