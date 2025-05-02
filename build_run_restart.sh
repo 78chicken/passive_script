@@ -45,7 +45,7 @@ for key in "${!CONTAINER_ACCOUNTS[@]}"; do
 done
 
 # 設定每個容器是否需要從 GitHub 下載更新 (Y=下載，N=本地方式)
-UPDATE_Dawn="Y"
+UPDATE_Dawn="N"
 UPDATE_OpenLoop="Y"
 UPDATE_Teneo="Y"
 UPDATE_Gaea="Y"
@@ -133,7 +133,7 @@ process_container "Unich" "$UPDATE_Unich" "unich" "tokens.txt" "$SLEEP_TIME" "$A
 process_container "Stork" "$UPDATE_Stork" "stork" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "3Dos" "$UPDATE_3Dos" "3dos" "token.txt" "$SLEEP_TIME" "$ACTION"
 process_container "GoKiteAi" "$UPDATE_GoKiteAi" "gokiteai" "" "$SLEEP_TIME" "$ACTION"
-process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.json" "$SLEEP_TIME" "$ACTION"
+process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.json" "$SLEEP_TIME" "STOP"
 process_container "Naoris" "$UPDATE_Naoris" "naoris" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "OpenLoop" "$UPDATE_OpenLoop" "openloop" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Teneo" "$UPDATE_Teneo" "teneo" "tokens.txt" "$SLEEP_TIME" "$ACTION"
