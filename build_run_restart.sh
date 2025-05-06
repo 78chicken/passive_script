@@ -45,7 +45,6 @@ for key in "${!CONTAINER_ACCOUNTS[@]}"; do
 done
 
 # 設定每個容器是否需要從 GitHub 下載更新 (Y=下載，N=本地方式)
-UPDATE_Dawn="N"
 UPDATE_OpenLoop="Y"
 UPDATE_Teneo="Y"
 UPDATE_Gaea="Y"
@@ -64,15 +63,16 @@ UPDATE_Kivanet="Y"
 UPDATE_OptimAi="Y"
 UPDATE_ByData="Y"
 UPDATE_OpenLedger="Y"
-UPDATE_Mygate="N"
-UPDATE_Meganet="N"
 UPDATE_Flow3="Y"
-UPDATE_Stork="N"
 UPDATE_Solix="Y"
 UPDATE_CryplexAi="Y"
 
 #以下目前無法賺錢的
 UPDATE_Exeos="N"
+UPDATE_Stork="N"
+UPDATE_Mygate="N"
+UPDATE_Meganet="N"
+UPDATE_Dawn="N"
 
 # 下載並執行腳本
 process_container() {
