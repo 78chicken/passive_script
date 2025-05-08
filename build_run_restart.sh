@@ -72,7 +72,7 @@ UPDATE_Exeos="N"
 UPDATE_Stork="N"
 UPDATE_Mygate="N"
 UPDATE_Meganet="N"
-UPDATE_Dawn="N"
+UPDATE_Dawn="Y"
 
 # 下載並執行腳本
 process_container() {
@@ -133,7 +133,7 @@ process_container "Unich" "$UPDATE_Unich" "unich" "tokens.txt" "$SLEEP_TIME" "$A
 process_container "Stork" "$UPDATE_Stork" "stork" "accounts.json" "$SLEEP_TIME" "STOP"
 process_container "3Dos" "$UPDATE_3Dos" "3dos" "token.txt" "$SLEEP_TIME" "$ACTION"
 process_container "GoKiteAi" "$UPDATE_GoKiteAi" "gokiteai" "" "$SLEEP_TIME" "$ACTION"
-process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.json" "$SLEEP_TIME" "STOP"
+process_container "Dawn" "$UPDATE_Dawn" "dawn" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Naoris" "$UPDATE_Naoris" "naoris" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "OpenLoop" "$UPDATE_OpenLoop" "openloop" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Teneo" "$UPDATE_Teneo" "teneo" "tokens.txt" "$SLEEP_TIME" "$ACTION"
