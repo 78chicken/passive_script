@@ -68,6 +68,7 @@ UPDATE_Solix="Y"
 UPDATE_CryplexAi="Y"
 UPDATE_Dawn="Y"
 UPDATE_Ddai="Y"
+UPDATE_MonadScore="Y"
 
 #以下目前無法賺錢的
 UPDATE_Exeos="N"
@@ -121,6 +122,7 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
+process_container "MonadScore" "$UPDATE_MonadScore" "monadscore" "query.txt" "$SLEEP_TIME" "$ACTION"
 process_container "CryplexAi" "$UPDATE_CryplexAi" "cryplexai" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Solix" "$UPDATE_Solix" "solix" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Mygate" "$UPDATE_Mygate" "mygate" "tokens.txt" "$SLEEP_TIME" "STOP"
