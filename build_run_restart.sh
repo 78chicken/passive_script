@@ -68,7 +68,6 @@ UPDATE_Solix="Y"
 UPDATE_CryplexAi="Y"
 UPDATE_Dawn="Y"
 UPDATE_Ddai="Y"
-UPDATE_MonadScore="Y"
 UPDATE_Brilliance="Y"
 
 #以下目前無法賺錢的
