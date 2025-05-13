@@ -3,6 +3,13 @@ QUEST_DIR="${BASE_DIR}/quest"
 GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 
+#openverse
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/openverse/accounts.txt" "$GITHUB_API/openverse/jyhfengli/accounts.txt"
+echo "download $GITHUB_API/openverse/all/accounts.txt to ${QUEST_DIR}/openverse/accounts.txt"
+sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/openverse/accounts.txt:/app/openverse/accounts.txt:Z --name Openverse docker.io/78chicken/openverse:latest
+sleep 60s 
+sudo podman stop Openverse
+
 #stobix
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/stobix/accounts.txt" "$GITHUB_API/stobix/all/accounts.txt"
 echo "download $GITHUB_API/stobix/all/accounts.txt to ${QUEST_DIR}/stobix/accounts.txt"
