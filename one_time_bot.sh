@@ -42,7 +42,7 @@ sudo podman stop TakerProtocol
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/gpunet/accounts.txt" "$GITHUB_API/gpunet/all/accounts.txt"
 echo "download $GITHUB_API/gpunet/all/accounts.txt to ${QUEST_DIR}/gpunet/accounts.txt"
 sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/gpunet/accounts.txt:/app/gpunet/accounts.txt:Z --name GpuNet docker.io/78chicken/gpunet:latest
-sleep 60s 
+sleep 120s 
 sudo podman stop GpuNet
 
 #ByteNova
