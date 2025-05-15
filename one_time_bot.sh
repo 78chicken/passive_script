@@ -10,6 +10,13 @@ sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/billions/cookies.txt:/a
 sleep 60s 
 sudo podman stop Billions
 
+#NexyAi
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/nexyai/tokens.txt" "$GITHUB_API/nexyai/all/tokens.txt"
+echo "download $GITHUB_API/nexyai/all/tokens.txt to ${QUEST_DIR}/nexyai/tokens.txt"
+sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/nexyai/tokens.txt:/app/nexyai/tokens.txt:Z --name NexyAi docker.io/78chicken/nexyai:latest
+sleep 120s 
+sudo podman stop NexyAi
+
 #openverse
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/openverse/accounts.txt" "$GITHUB_API/openverse/jyhfengli/accounts.txt"
 echo "download $GITHUB_API/openverse/all/accounts.txt to ${QUEST_DIR}/openverse/accounts.txt"
