@@ -42,7 +42,7 @@ sudo podman stop ZerosWallet
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/unich/tokens.txt" "$GITHUB_API/unich/all/tokens.txt"
 echo "download $GITHUB_API/unich/all/tokens.txt to ${QUEST_DIR}/unich/tokens.txt"
 sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/unich/tokens.txt:/app/unich/tokens.txt:Z --name Unich docker.io/78chicken/unich:latest
-sleep 60s 
+sleep 120s 
 sudo podman stop Unich
 
 #TakerProtocol
