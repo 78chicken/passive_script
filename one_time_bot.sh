@@ -3,9 +3,16 @@ QUEST_DIR="${BASE_DIR}/quest"
 GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 
+#Assisterr
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/assisterr/accounts.txt" "$GITHUB_API/assisterr/all/accounts.txt"
+echo "download $GITHUB_API/assisterr/all/accounts.txt to ${QUEST_DIR}/assisterr/accounts.txt"
+sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/assisterr/accounts.txt:/app/assisterr/accounts.txt:Z --name Assisterr docker.io/78chicken/assisterr:latest
+sleep 60s 
+sudo podman stop Assisterr
+
 #Billions
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/billions/cookies.txt" "$GITHUB_API/billions/all/cookies.txt"
-echo "download $GITHUB_API/billions/all/accounts.txt to ${QUEST_DIR}/billions/accounts.txt"
+echo "download $GITHUB_API/billions/all/cookies.txt to ${QUEST_DIR}/billions/cookies.txt"
 sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/billions/cookies.txt:/app/billions/cookies.txt:Z --name Billions docker.io/78chicken/billions:latest
 sleep 60s 
 sudo podman stop Billions
