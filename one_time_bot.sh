@@ -35,7 +35,7 @@ sudo podman stop Openverse
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/stobix/accounts.txt" "$GITHUB_API/stobix/all/accounts.txt"
 echo "download $GITHUB_API/stobix/all/accounts.txt to ${QUEST_DIR}/stobix/accounts.txt"
 sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/stobix/accounts.txt:/app/stobix/accounts.txt:Z --name Stobix docker.io/78chicken/stobix:latest
-sleep 120s 
+sleep 150s 
 sudo podman stop Stobix
 
 #zeroswallet
