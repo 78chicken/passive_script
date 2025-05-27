@@ -3,6 +3,13 @@ QUEST_DIR="${BASE_DIR}/quest"
 GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 
+#AsterAi
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/asterai/tokens.txt" "$GITHUB_API/asterai/jyhfengli/tokens.txt"
+echo "download $GITHUB_API/asterai/jyhfengli/tokens.txt to ${QUEST_DIR}/asterai/tokens.txt"
+sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/asterai/tokens.txt:/app/asterai/tokens.txt:Z --name AsterAi docker.io/78chicken/asterai:latest
+sleep 60s 
+sudo podman stop AsterAi
+
 #Assisterr
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/assisterr/accounts.txt" "$GITHUB_API/assisterr/all/accounts.txt"
 echo "download $GITHUB_API/assisterr/all/accounts.txt to ${QUEST_DIR}/assisterr/accounts.txt"
