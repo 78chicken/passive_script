@@ -4,11 +4,11 @@ GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 
 #Centic
-sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/centic/accounts.txt" "$GITHUB_API/centic/jyhfengli/accounts.txt"
-echo "download $GITHUB_API/centic/jyhfengli/accounts.txt to ${QUEST_DIR}/centic/accounts.txt"
-sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/centic/accounts.txt:/app/centic/accounts.txt:Z --name Centic docker.io/78chicken/centic:latest
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/wump/tokens.txt" "$GITHUB_API/wump/jyhfengli/tokens.txt"
+echo "download $GITHUB_API/wump/jyhfengli/tokens.txt to ${QUEST_DIR}/wump/tokens.txt"
+sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/wump/tokens.txt:/app/wump/tokens.txt:Z --name Wump docker.io/78chicken/wump:latest
 sleep 40s 
-sudo podman stop Centic
+sudo podman stop Wump
 
 #AsterAi
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/asterai/tokens.txt" "$GITHUB_API/asterai/jyhfengli/tokens.txt"
