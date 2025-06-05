@@ -146,7 +146,7 @@ process_container "Gaea" "$UPDATE_Gaea" "gaea" "accounts.json" "$SLEEP_TIME" "ST
 process_container "Bless" "$UPDATE_Bless" "bless" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "DePINed" "$UPDATE_DePINed" "depined" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "MinionLab" "$UPDATE_MinionLab" "minionlab" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "NodePay" "$UPDATE_NodePay" "nodepay" "tokens.txt" "$SLEEP_TIME" "$ACTION"
+process_container "NodePay" "$UPDATE_NodePay" "nodepay" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "DistributeAi" "$UPDATE_DistributeAi" "distributeai" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Nodego" "$UPDATE_Nodego" "nodego" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Sparkchain" "$UPDATE_Sparkchain" "sparkchain" "tokens.txt" "$SLEEP_TIME" "$ACTION"
