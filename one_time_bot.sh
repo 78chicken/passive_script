@@ -10,12 +10,6 @@ sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/wump/tokens.txt:/app/wu
 sleep 40s 
 sudo podman stop Wump
 
-#AsterAi
-#sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/asterai/tokens.txt" "$GITHUB_API/asterai/jyhfengli/tokens.txt"
-#echo "download $GITHUB_API/asterai/jyhfengli/tokens.txt to ${QUEST_DIR}/asterai/tokens.txt"
-#sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/asterai/tokens.txt:/app/asterai/tokens.txt:Z --name AsterAi docker.io/78chicken/asterai:latest
-#sleep 300s 
-#sudo podman stop AsterAi
 
 #Assisterr
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/assisterr/accounts.txt" "$GITHUB_API/assisterr/all/accounts.txt"
@@ -115,12 +109,6 @@ sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/coresky/accounts.txt:/a
 sleep 60s 
 sudo podman stop Coresky
 
-#ByData
-#sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/bydata/accounts.txt" "$GITHUB_API/bydata/all/accounts.txt"
-#echo "download $GITHUB_API/bydata/all/accounts.txt to ${QUEST_DIR}/bydata/accounts.txt"
-#sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/bydata/accounts.txt:/app/bydata/accounts.txt:Z --name ByData docker.io/78chicken/bydata:latest
-#sleep 300s 
-#sudo podman stop ByData
 
 #HahaWallet
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/hahawallet/accounts.json" "$GITHUB_API/hahawallet/jyhfengli/accounts.json"
