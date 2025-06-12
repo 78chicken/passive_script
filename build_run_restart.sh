@@ -47,12 +47,11 @@ done
 # 設定每個容器是否需要從 GitHub 下載更新 (Y=下載，N=本地方式)
 UPDATE_OpenLoop="Y"
 UPDATE_Teneo="Y"
-UPDATE_Gaea="N"
 UPDATE_Bless="Y"
 UPDATE_DePINed="Y"
 UPDATE_MinionLab="Y"
 UPDATE_NodePay="Y"
-UPDATE_Nodego="Y"
+UPDATE_Nodego="N"
 UPDATE_Sparkchain="Y"
 UPDATE_Naoris="Y"
 UPDATE_KiteAi="Y"
@@ -148,6 +147,6 @@ process_container "DePINed" "$UPDATE_DePINed" "depined" "accounts.json" "$SLEEP_
 process_container "MinionLab" "$UPDATE_MinionLab" "minionlab" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "NodePay" "$UPDATE_NodePay" "nodepay" "tokens.json" "$SLEEP_TIME" "$ACTION"
 process_container "DistributeAi" "$UPDATE_DistributeAi" "distributeai" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "Nodego" "$UPDATE_Nodego" "nodego" "tokens.txt" "$SLEEP_TIME" "$ACTION"
+process_container "Nodego" "$UPDATE_Nodego" "nodego" "tokens.txt" "$SLEEP_TIME" "STOP"
 process_container "Sparkchain" "$UPDATE_Sparkchain" "sparkchain" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 
