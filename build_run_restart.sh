@@ -141,7 +141,7 @@ process_container "KiteAi" "$UPDATE_KiteAi" "kiteai" "accounts.txt" "$SLEEP_TIME
 process_container "Dawn" "$UPDATE_Dawn" "dawn" "tokens.json" "$SLEEP_TIME" "$ACTION"
 process_container "Naoris" "$UPDATE_Naoris" "naoris" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "OpenLoop" "$UPDATE_OpenLoop" "openloop" "tokens.txt" "$SLEEP_TIME" "$ACTION"
-process_container "Teneo" "$UPDATE_Teneo" "teneo" "tokens.txt" "$SLEEP_TIME" "$ACTION"
+process_container "Teneo" "$UPDATE_Teneo" "teneo" "tokens.json" "$SLEEP_TIME" "$ACTION"
 process_container "Gaea" "$UPDATE_Gaea" "gaea" "accounts.json" "$SLEEP_TIME" "STOP"
 process_container "Bless" "$UPDATE_Bless" "bless" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "DePINed" "$UPDATE_DePINed" "depined" "accounts.json" "$SLEEP_TIME" "$ACTION"
