@@ -4,9 +4,9 @@ GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
 
 #SowingTaker
-sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/sowingtaker/tokens.txt" "$GITHUB_API/sowingtaker/jyhfengli/tokens.txt"
-echo "download $GITHUB_API/sowingtaker/jyhfengli/tokens.txt to ${QUEST_DIR}/sowingtaker/tokens.txt"
-sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/sowingtaker/tokens.txt:/app/sowingtaker/tokens.txt:Z --name SowingTaker docker.io/78chicken/sowingtaker:latest
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/sowingtaker/accounts.txt" "$GITHUB_API/sowingtaker/jyhfengli/accounts.txt"
+echo "download $GITHUB_API/sowingtaker/jyhfengli/accounts.txt to ${QUEST_DIR}/sowingtaker/accounts.txt"
+sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/sowingtaker/accounts.txt:/app/sowingtaker/accounts.txt:Z --name SowingTaker docker.io/78chicken/sowingtaker:latest
 sleep 40s 
 sudo podman stop SowingTaker
 
