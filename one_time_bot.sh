@@ -2,6 +2,12 @@ BASE_DIR="/opt/build_image"
 QUEST_DIR="${BASE_DIR}/quest"
 GITHUB_REPO="78chicken/config"
 GITHUB_API="https://api.github.com/repos/${GITHUB_REPO}/contents"
+#pharos
+sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/pharos/accounts.txt" "$GITHUB_API/pharos/jyhfengli/accounts.txt"
+echo "download $GITHUB_API/pharos/jyhfengli/accounts.txt to ${QUEST_DIR}/pharos/accounts.txt"
+sudo podman run -d --rm --replace -m 50m -v ${QUEST_DIR}/pharos/accounts.txt:/app/pharos/accounts.txt:Z --name Pharos docker.io/78chicken/pharos:latest
+sleep 60s 
+sudo podman stop Pharos
 
 #SowingTaker
 sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "${QUEST_DIR}/sowingtaker/accounts.txt" "$GITHUB_API/sowingtaker/jyhfengli/accounts.txt"
