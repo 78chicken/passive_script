@@ -73,7 +73,6 @@ UPDATE_LayerEdge="Y"
 
 #以下目前無法賺錢的
 UPDATE_Exeos="N"
-UPDATE_Mygate="N"
 UPDATE_Meganet="N"
 
 
@@ -128,7 +127,6 @@ process_container "Brilliance" "$UPDATE_Brilliance" "brilliance" "accounts.json"
 process_container "LayerEdge" "$UPDATE_LayerEdge" "layeredge" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "CryplexAi" "$UPDATE_CryplexAi" "cryplexai" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Solix" "$UPDATE_Solix" "solix" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "Mygate" "$UPDATE_Mygate" "mygate" "tokens.txt" "$SLEEP_TIME" "STOP"
 process_container "Meganet" "$UPDATE_Meganet" "meganet" "accounts.txt" "$SLEEP_TIME" "STOP"
 process_container "Exeos" "$UPDATE_Exeos" "exeos" "accounts.json" "$SLEEP_TIME" "STOP"
 process_container "OptimAi" "$UPDATE_OptimAi" "optimai" "accounts.json" "$SLEEP_TIME" "$ACTION"
