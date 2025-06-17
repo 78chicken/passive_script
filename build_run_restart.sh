@@ -45,6 +45,7 @@ for key in "${!CONTAINER_ACCOUNTS[@]}"; do
 done
 
 # 設定每個容器是否需要從 GitHub 下載更新 (Y=下載，N=本地方式)
+UPDATE_Monami="Y"
 UPDATE_OpenLoop="Y"
 UPDATE_Teneo="Y"
 UPDATE_Bless="Y"
@@ -122,6 +123,7 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
+process_container "Monami" "$UPDATE_Monami" "monami" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Brilliance" "$UPDATE_Brilliance" "brilliance" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "LayerEdge" "$UPDATE_LayerEdge" "layeredge" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "CryplexAi" "$UPDATE_CryplexAi" "cryplexai" "tokens.txt" "$SLEEP_TIME" "$ACTION"
