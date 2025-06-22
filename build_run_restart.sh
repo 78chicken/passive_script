@@ -69,6 +69,7 @@ UPDATE_Dawn="Y"
 UPDATE_Ddai="Y"
 UPDATE_Brilliance="Y"
 UPDATE_LayerEdge="Y"
+UPDATE_Sixpence="Y"
 
 #以下目前無法賺錢的
 UPDATE_Exeos="N"
@@ -121,6 +122,7 @@ process_container() {
 }
 
 # 依據設定執行不同的更新方式
+process_container "Sixpence" "$UPDATE_Sixpence" "sixpence" "accounts.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Monami" "$UPDATE_Monami" "monami" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Brilliance" "$UPDATE_Brilliance" "brilliance" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "LayerEdge" "$UPDATE_LayerEdge" "layeredge" "tokens.txt" "$SLEEP_TIME" "$ACTION"
