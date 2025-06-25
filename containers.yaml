@@ -1,0 +1,175 @@
+# containers.yaml
+# 放在 GitHub 倉庫的根目錄下，例如 config/containers.yaml
+
+containers:
+  - name: Sixpence
+    project_name: sixpence
+    account_file: accounts.txt # 如果需要下載此帳號檔案，保留此項
+    update: true # true 表示從 GitHub 下載 run.sh 和 account_file (如果指定)
+    action: START # STOP 或 START，用於覆蓋腳本的預設 ACTION
+
+  - name: Monami
+    project_name: monami
+    account_file: accounts.json
+    update: true
+    action: START
+
+  - name: Brilliance
+    project_name: brilliance
+    account_file: accounts.json
+    update: true
+    action: START
+
+  - name: LayerEdge
+    project_name: layeredge
+    account_file: tokens.txt
+    update: true
+    action: START
+
+  - name: CryplexAi
+    project_name: cryplexai
+    account_file: tokens.txt
+    update: true
+    action: START
+
+  # 這裡的 Grass 配置，account_file 為空/null，但 update: true
+  # daily_job.sh 會根據 project_name: grass 和 key.txt 中的帳號識別碼來尋找 run.sh
+  - name: Grass
+    project_name: grass
+    account_file: null # 或者設為 ""，表示不需要額外下載帳號檔案
+    update: true # 必須是 true，才會下載 run.sh
+    action: START
+
+  - name: OptimAi
+    project_name: optimai
+    account_file: accounts.json
+    update: true
+    action: START
+
+  - name: Kivanet
+    project_name: kivanet
+    account_file: accounts.json
+    update: true
+    action: START
+
+  - name: Unich
+    project_name: unich
+    account_file: tokens.txt
+    update: true
+    action: START
+
+  - name: Ddai
+    project_name: ddai
+    account_file: tokens.json
+    update: true
+    action: START
+
+  - name: 3Dos
+    project_name: 3dos
+    account_file: accounts.json
+    update: true
+    action: START
+
+  - name: KiteAi
+    project_name: kiteai
+    account_file: accounts.txt
+    update: true
+    action: START
+
+  - name: Dawn
+    project_name: dawn
+    account_file: tokens.json
+    update: true
+    action: START
+
+  - name: Naoris
+    project_name: naoris
+    account_file: accounts.json
+    update: true
+    action: START
+
+  - name: OpenLoop
+    project_name: openloop
+    account_file: tokens.json
+    update: true
+    action: START
+
+  - name: Teneo
+    project_name: teneo
+    account_file: tokens.json
+    update: true
+    action: START
+
+  - name: Bless
+    project_name: bless
+    account_file: accounts.json
+    update: true
+    action: START
+
+  - name: DePINed
+    project_name: depined
+    account_file: tokens.json
+    update: true
+    action: START
+
+  - name: MinionLab
+    project_name: minionlab
+    account_file: accounts.json
+    update: true
+    action: START
+
+  - name: NodePay
+    project_name: nodepay
+    account_file: tokens.json
+    update: true
+    action: START
+
+  - name: DistributeAi
+    project_name: distributeai
+    account_file: accounts.json
+    update: true
+    action: START
+
+  - name: Sparkchain
+    project_name: sparkchain
+    account_file: tokens.txt
+    update: true
+    action: START
+
+  # 這些容器的 update: false 表示它們不會從 GitHub 下載 run.sh
+  # daily_job.sh 會嘗試對其執行 podman stop/start
+  - name: Solix
+    project_name: solix
+    account_file: accounts.json # 雖然不下載 run.sh，但此處可作為註記
+    update: false
+    action: START # 或 STOP
+
+  - name: Meganet
+    project_name: meganet
+    account_file: accounts.txt
+    update: false
+    action: STOP # 這裡直接指定 STOP
+
+  - name: Exeos
+    project_name: exeos
+    account_file: accounts.json
+    update: false
+    action: STOP
+
+  - name: OpenLedger
+    project_name: openledger
+    account_file: accounts.json
+    update: false
+    action: STOP
+
+  - name: Flow3
+    project_name: flow3
+    account_file: tokens.txt
+    update: false
+    action: STOP
+
+  - name: Nodego
+    project_name: nodego
+    account_file: tokens.txt
+    update: false
+    action: STOP
