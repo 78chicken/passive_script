@@ -68,7 +68,7 @@ UPDATE_CryplexAi="Y"
 UPDATE_Dawn="Y"
 UPDATE_Ddai="Y"
 UPDATE_Brilliance="Y"
-UPDATE_LayerEdge="N"
+UPDATE_LayerEdge="Y"
 UPDATE_Sixpence="Y"
 
 #以下目前無法賺錢的
@@ -125,7 +125,7 @@ process_container() {
 process_container "Sixpence" "$UPDATE_Sixpence" "sixpence" "accounts.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Monami" "$UPDATE_Monami" "monami" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Brilliance" "$UPDATE_Brilliance" "brilliance" "accounts.json" "$SLEEP_TIME" "$ACTION"
-process_container "LayerEdge" "$UPDATE_LayerEdge" "layeredge" "tokens.txt" "$SLEEP_TIME" "STOP"
+process_container "LayerEdge" "$UPDATE_LayerEdge" "layeredge" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "CryplexAi" "$UPDATE_CryplexAi" "cryplexai" "tokens.txt" "$SLEEP_TIME" "$ACTION"
 process_container "Solix" "$UPDATE_Solix" "solix" "accounts.json" "$SLEEP_TIME" "$ACTION"
 process_container "Meganet" "$UPDATE_Meganet" "meganet" "accounts.txt" "$SLEEP_TIME" "STOP"
