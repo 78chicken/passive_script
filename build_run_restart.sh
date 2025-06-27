@@ -155,6 +155,7 @@ for i in "${CONTAINER_INDICES[@]}"; do
                     echo "[$CONTAINER_NAME] 下載設定檔: ${ACCOUNT_FILE} 從 ${ACCOUNT_FILE_URL}"
                     if ! sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "$ACCOUNT_FILE_LOCAL_PATH" "$ACCOUNT_FILE_URL"; then
                         echo "[$CONTAINER_NAME] 錯誤: 無法下載設定檔 ${ACCOUNT_FILE}。"
+                        continue
                     fi
                 fi
             fi
