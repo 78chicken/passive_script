@@ -145,6 +145,7 @@ for i in "${CONTAINER_INDICES[@]}"; do
             if [[ "$ACCOUNT_FILE" != "" && "$ACCOUNT_FILE" != "null" ]]; then
                 if [[ -z "$DYNAMIC_ACCOUNT_IDENTIFIER" ]]; then
                     echo "[$CONTAINER_NAME] 警告: 指定了 account_file 但沒有對應的帳號識別碼，無法下載 ${ACCOUNT_FILE}。請檢查 key.txt 或 containers.yaml。"
+                    continue
                 else
                     ACCOUNT_FILE_URL="$GITHUB_API/${TYPE}/${PROJECT_NAME}/${DYNAMIC_ACCOUNT_IDENTIFIER}/$ACCOUNT_FILE"
                     ACCOUNT_FILE_LOCAL_PATH="${BASE_DIR}/${PROJECT_NAME}/${DYNAMIC_ACCOUNT_IDENTIFIER}/$ACCOUNT_FILE"
