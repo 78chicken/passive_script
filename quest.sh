@@ -4,7 +4,7 @@
 # 此腳本專門處理 'quest' 類型，且只支持 'mode: 4' (一次性運行後刪除) 的容器。
 
 BASE_DIR="/opt"
-TARGET_TYPE="quest"   # <--- 此腳本固定處理 'quest' 類型的容器
+TARGET_TYPE="quest"    # <--- 此腳本固定處理 'quest' 類型的容器
 
 # 檢查 GITHUB_TOKEN 是否設定
 if [[ -z "$GITHUB_TOKEN" ]]; then
@@ -72,32 +72,35 @@ for i in "${CONTAINER_INDICES[@]}"; do
     CONTAINER_NAME=$(yq ".containers[$i].name" "$CONTAINERS_CONFIG_PATH")
     PROJECT_NAME=$(yq ".containers[$i].project_name" "$CONTAINERS_CONFIG_PATH")
     IMAGE_NAME=$(yq ".containers[$i].image_name // \"\"" "$CONTAINERS_CONFIG_PATH")
-    PARAM_FILE_NAME=$(yq ".containers[$i].param_file // \"null\"" "$CONTAINERS_CONFIG_PATH")
+    ACCOUNT_FILE_NAME=$(yq ".containers[$i].account_file // \"null\"" "$CONTAINERS_CONFIG_PATH") # 從 account_file 欄位獲取
     MODE=$(yq ".containers[$i].mode // 0" "$CONTAINERS_CONFIG_PATH")
     MAX_MEMORY=$(yq ".containers[$i].max_memory // \"50M\"" "$CONTAINERS_CONFIG_PATH")
-    # 直接使用 YAML 中的 sleep_time 字段，並賦值給 CONTAINER_SLEEP_TIME
     CONTAINER_SLEEP_TIME=$(yq ".containers[$i].sleep_time // \"10s\"" "$CONTAINERS_CONFIG_PATH")
 
     echo "" # 空行分隔每個容器的日誌
     echo "--- 處理容器: $CONTAINER_NAME (專案: $PROJECT_NAME, 類型: $TARGET_TYPE) ---"
-    echo "  設定: 模式=$MODE, 最大記憶體=$MAX_MEMORY, 映像檔名稱=$IMAGE_NAME, 參數檔案名稱=$PARAM_FILE_NAME"
+    echo "  設定: 模式=$MODE, 最大記憶體=$MAX_MEMORY, 映像檔名稱=$IMAGE_NAME, 帳號檔案名稱=$ACCOUNT_FILE_NAME"
     echo "  容器運行持續時間 (CONTAINER_SLEEP_TIME): $CONTAINER_SLEEP_TIME"
 
-    LOCAL_PARAM_FILE_PATH=""
-    # 下載參數檔案 (如果 PARAM_FILE_NAME 不為空且不為 "null")
-    if [[ -n "$PARAM_FILE_NAME" && "$PARAM_FILE_NAME" != "null" ]]; then
-        PARAM_FILE_URL="$GITHUB_API/$TARGET_TYPE/${PROJECT_NAME}/$PARAM_FILE_NAME"
-        LOCAL_PARAM_FILE_PATH="${BASE_DIR}/${PROJECT_NAME}/$PARAM_FILE_NAME"
-        sudo mkdir -p "$(dirname "$LOCAL_PARAM_FILE_PATH")"
-                        
-        echo "[$CONTAINER_NAME] 下載設定檔: ${PARAM_FILE_NAME} 從 ${PARAM_FILE_URL}"
-        if ! sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "$LOCAL_PARAM_FILE_PATH" "$PARAM_FILE_URL"; then
-            echo "[$CONTAINER_NAME] 錯誤: 無法下載設定檔 ${PARAM_FILE_NAME}。"
+    LOCAL_ACCOUNT_FILE_PATH=""
+    # 下載帳號檔案 (如果 ACCOUNT_FILE_NAME 不為空且不為 "null")
+    if [[ -n "$ACCOUNT_FILE_NAME" && "$ACCOUNT_FILE_NAME" != "null" ]]; then
+        # 假設 ACCOUNT_FILE_NAME 包含 'user/filename' 部分，例如 'user/my_account.json'
+        # 構建正確的 GitHub URL: config/quest/PROJECT_NAME/user/filename
+        ACCOUNT_FILE_URL="$GITHUB_API/$TARGET_TYPE/${PROJECT_NAME}/$ACCOUNT_FILE_NAME"
+        
+        # 確保本地路徑也包含 user 子目錄，例如 /opt/PROJECT_NAME/user/filename
+        LOCAL_ACCOUNT_FILE_PATH="${BASE_DIR}/${PROJECT_NAME}/${ACCOUNT_FILE_NAME}"
+        sudo mkdir -p "$(dirname "$LOCAL_ACCOUNT_FILE_PATH")"
+                                
+        echo "[$CONTAINER_NAME] 下載帳號檔案: ${ACCOUNT_FILE_NAME} 從 ${ACCOUNT_FILE_URL}"
+        if ! sudo curl -s -H "Accept: application/vnd.github.v3.raw" -H "Authorization: token ${GITHUB_TOKEN}" -o "$LOCAL_ACCOUNT_FILE_PATH" "$ACCOUNT_FILE_URL"; then
+            echo "[$CONTAINER_NAME] 錯誤: 無法下載帳號檔案 ${ACCOUNT_FILE_NAME}。請檢查路徑或權杖。"
             continue
         fi
         
     else
-        echo "[$CONTAINER_NAME] 未指定參數檔案名稱，或指定為 null/空，將不傳遞額外參數檔案。"
+        echo "[$CONTAINER_NAME] 未指定帳號檔案名稱，或指定為 null/空，將不傳遞額外帳號檔案。"
     fi
 
     case $MODE in
@@ -105,7 +108,8 @@ for i in "${CONTAINER_INDICES[@]}"; do
             echo "[$CONTAINER_NAME] 模式 4: 啟動容器，執行 $CONTAINER_SLEEP_TIME 後停止並刪除..."
             
             # 執行共用的 run.sh 腳本來啟動容器
-            sudo bash "$LOCAL_RUN_SH_PATH" "$CONTAINER_NAME" "$PROJECT_NAME" "$MAX_MEMORY" "$IMAGE_NAME" "$LOCAL_PARAM_FILE_PATH"
+            # 將 LOCAL_ACCOUNT_FILE_PATH 作為第六個參數傳遞
+            sudo bash "$LOCAL_RUN_SH_PATH" "$CONTAINER_NAME" "$PROJECT_NAME" "$MAX_MEMORY" "$IMAGE_NAME" "$LOCAL_ACCOUNT_FILE_PATH"
 
             # 檢查容器是否確實啟動（給容器一點時間啟動）
             sleep 5
