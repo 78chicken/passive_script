@@ -70,8 +70,7 @@ fi
 for i in "${CONTAINER_INDICES[@]}"; do
     # 使用索引來獲取完整的容器資訊
     CONTAINER_NAME=$(yq ".containers[$i].name" "$CONTAINERS_CONFIG_PATH")
-    PROJECT_NAME=$(yq ".containers[$i].project_name" "$CONTAINERS_CONFIG_PATH")
-    IMAGE_NAME=$(yq ".containers[$i].image_name // \"\"" "$CONTAINERS_CONFIG_PATH")
+    PROJECT_NAME=$(yq ".containers[$i].project_name" "$CONTAINERS_CONFIG_PATH")    
     ACCOUNT_FILE_NAME=$(yq ".containers[$i].account_file // \"null\"" "$CONTAINERS_CONFIG_PATH") # 從 account_file 欄位獲取
     MODE=$(yq ".containers[$i].mode // 0" "$CONTAINERS_CONFIG_PATH")
     MAX_MEMORY=$(yq ".containers[$i].max_memory // \"50M\"" "$CONTAINERS_CONFIG_PATH")
@@ -109,7 +108,7 @@ for i in "${CONTAINER_INDICES[@]}"; do
             
             # 執行共用的 run.sh 腳本來啟動容器
             # 將 LOCAL_ACCOUNT_FILE_PATH 作為第六個參數傳遞
-            sudo bash "$LOCAL_RUN_SH_PATH" "$CONTAINER_NAME" "$PROJECT_NAME" "$MAX_MEMORY" "$IMAGE_NAME" "$LOCAL_ACCOUNT_FILE_PATH"
+            sudo bash "$LOCAL_RUN_SH_PATH" "$CONTAINER_NAME" "$PROJECT_NAME" "$MAX_MEMORY" "$LOCAL_ACCOUNT_FILE_PATH"
 
             # 檢查容器是否確實啟動（給容器一點時間啟動）
             sleep 5
