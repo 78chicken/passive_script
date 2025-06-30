@@ -70,7 +70,8 @@ fi
 for i in "${CONTAINER_INDICES[@]}"; do
     # 使用索引來獲取完整的容器資訊
     CONTAINER_NAME=$(yq ".containers[$i].name" "$CONTAINERS_CONFIG_PATH")
-    PROJECT_NAME=$(yq ".containers[$i].project_name" "$CONTAINERS_CONFIG_PATH")    
+    PROJECT_NAME=$(yq ".containers[$i].project_name" "$CONTAINERS_CONFIG_PATH")
+    # 這裡不再從 YAML 讀取 IMAGE_NAME，因為 run.sh 會從 PROJECT_NAME 推導
     ACCOUNT_FILE_NAME=$(yq ".containers[$i].account_file // \"null\"" "$CONTAINERS_CONFIG_PATH") # 從 account_file 欄位獲取
     MODE=$(yq ".containers[$i].mode // 0" "$CONTAINERS_CONFIG_PATH")
     MAX_MEMORY=$(yq ".containers[$i].max_memory // \"50M\"" "$CONTAINERS_CONFIG_PATH")
@@ -78,7 +79,7 @@ for i in "${CONTAINER_INDICES[@]}"; do
 
     echo "" # 空行分隔每個容器的日誌
     echo "--- 處理容器: $CONTAINER_NAME (專案: $PROJECT_NAME, 類型: $TARGET_TYPE) ---"
-    echo "  設定: 模式=$MODE, 最大記憶體=$MAX_MEMORY, 映像檔名稱=$IMAGE_NAME, 帳號檔案名稱=$ACCOUNT_FILE_NAME"
+    echo "  設定: 模式=$MODE, 最大記憶體=$MAX_MEMORY, 帳號檔案名稱=$ACCOUNT_FILE_NAME"
     echo "  容器運行持續時間 (CONTAINER_SLEEP_TIME): $CONTAINER_SLEEP_TIME"
 
     LOCAL_ACCOUNT_FILE_PATH=""
@@ -107,7 +108,8 @@ for i in "${CONTAINER_INDICES[@]}"; do
             echo "[$CONTAINER_NAME] 模式 4: 啟動容器，執行 $CONTAINER_SLEEP_TIME 後停止並刪除..."
             
             # 執行共用的 run.sh 腳本來啟動容器
-            # 將 LOCAL_ACCOUNT_FILE_PATH 作為第六個參數傳遞
+            # 傳遞參數: CONTAINER_NAME, PROJECT_NAME, MAX_MEMORY, LOCAL_ACCOUNT_FILE_PATH
+            # 注意: 不再傳遞 IMAGE_NAME，run.sh 會自行從 PROJECT_NAME 推導
             sudo bash "$LOCAL_RUN_SH_PATH" "$CONTAINER_NAME" "$PROJECT_NAME" "$MAX_MEMORY" "$LOCAL_ACCOUNT_FILE_PATH"
 
             # 檢查容器是否確實啟動（給容器一點時間啟動）
